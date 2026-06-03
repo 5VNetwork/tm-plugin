@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="880"
+    android:viewportHeight="880">
+    <!-- Bbox ~651×667 centered in 880² (~15% padding vs tight crop; raise viewport for more) -->
+    <group
+        android:translateX="-72.4"
+        android:translateY="-72.5">
+        <path
+            android:fillColor="#F5F5F7"
+            android:pathData="M513.8,621.1L662.5,179H837.8L590,846H434.8L187,179H364.3L513.8,621.1Z" />
+    </group>
+</vector>
