@@ -51,7 +51,6 @@ const DeviceConfig$json = {
     {'1': 'mtu', '3': 4, '4': 1, '5': 5, '10': 'mtu'},
     {'1': 'num_workers', '3': 5, '4': 1, '5': 5, '10': 'numWorkers'},
     {'1': 'reserved', '3': 6, '4': 1, '5': 12, '10': 'reserved'},
-    {'1': 'is_client', '3': 8, '4': 1, '5': 8, '10': 'isClient'},
     {'1': 'no_kernel_tun', '3': 9, '4': 1, '5': 8, '10': 'noKernelTun'},
   ],
 };
@@ -61,5 +60,5 @@ final $typed_data.Uint8List deviceConfigDescriptor = $convert.base64Decode(
     'CgxEZXZpY2VDb25maWcSHQoKc2VjcmV0X2tleRgBIAEoCVIJc2VjcmV0S2V5EhoKCGVuZHBvaW'
     '50GAIgAygJUghlbmRwb2ludBI0CgVwZWVycxgDIAMoCzIeLnZ4LnByb3h5LndpcmVndWFyZC5Q'
     'ZWVyQ29uZmlnUgVwZWVycxIQCgNtdHUYBCABKAVSA210dRIfCgtudW1fd29ya2VycxgFIAEoBV'
-    'IKbnVtV29ya2VycxIaCghyZXNlcnZlZBgGIAEoDFIIcmVzZXJ2ZWQSGwoJaXNfY2xpZW50GAgg'
-    'ASgIUghpc0NsaWVudBIiCg1ub19rZXJuZWxfdHVuGAkgASgIUgtub0tlcm5lbFR1bg==');
+    'IKbnVtV29ya2VycxIaCghyZXNlcnZlZBgGIAEoDFIIcmVzZXJ2ZWQSIgoNbm9fa2VybmVsX3R1'
+    'bhgJIAEoCFILbm9LZXJuZWxUdW4=');

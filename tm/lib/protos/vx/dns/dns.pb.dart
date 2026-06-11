@@ -31,7 +31,6 @@ class DnsConfig extends $pb.GeneratedMessage {
     $core.Iterable<ConcurrentDnsServer>? concurrentDnsServers,
     $core.Iterable<SerialDnsServer>? serialDnsServers,
     DnsHijackConfig? dnsHijack,
-    $core.Iterable<Resolver>? resolvers,
   }) {
     final result = create();
     if (records != null) result.records.addAll(records);
@@ -45,7 +44,6 @@ class DnsConfig extends $pb.GeneratedMessage {
     if (serialDnsServers != null)
       result.serialDnsServers.addAll(serialDnsServers);
     if (dnsHijack != null) result.dnsHijack = dnsHijack;
-    if (resolvers != null) result.resolvers.addAll(resolvers);
     return result;
   }
 
@@ -77,8 +75,6 @@ class DnsConfig extends $pb.GeneratedMessage {
         subBuilder: SerialDnsServer.create)
     ..aOM<DnsHijackConfig>(11, _omitFieldNames ? '' : 'dnsHijack',
         subBuilder: DnsHijackConfig.create)
-    ..pPM<Resolver>(12, _omitFieldNames ? '' : 'resolvers',
-        subBuilder: Resolver.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -148,9 +144,6 @@ class DnsConfig extends $pb.GeneratedMessage {
   void clearDnsHijack() => $_clearField(11);
   @$pb.TagNumber(11)
   DnsHijackConfig ensureDnsHijack() => $_ensure(7);
-
-  @$pb.TagNumber(12)
-  $pb.PbList<Resolver> get resolvers => $_getList(8);
 }
 
 class DnsHijackConfig extends $pb.GeneratedMessage {
@@ -997,11 +990,9 @@ class DohDnsServer extends $pb.GeneratedMessage {
 class QuicDnsServer extends $pb.GeneratedMessage {
   factory QuicDnsServer({
     $core.String? address,
-    $core.String? serverName,
   }) {
     final result = create();
     if (address != null) result.address = address;
-    if (serverName != null) result.serverName = serverName;
     return result;
   }
 
@@ -1019,7 +1010,6 @@ class QuicDnsServer extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.dns'),
       createEmptyInstance: create)
     ..aOS(2, _omitFieldNames ? '' : 'address')
-    ..aOS(3, _omitFieldNames ? '' : 'serverName')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1049,15 +1039,6 @@ class QuicDnsServer extends $pb.GeneratedMessage {
   $core.bool hasAddress() => $_has(0);
   @$pb.TagNumber(2)
   void clearAddress() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get serverName => $_getSZ(1);
-  @$pb.TagNumber(3)
-  set serverName($core.String value) => $_setString(1, value);
-  @$pb.TagNumber(3)
-  $core.bool hasServerName() => $_has(1);
-  @$pb.TagNumber(3)
-  void clearServerName() => $_clearField(3);
 }
 
 class GoDnsServer extends $pb.GeneratedMessage {

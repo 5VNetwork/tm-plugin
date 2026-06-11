@@ -31,45 +31,6 @@ final $typed_data.Uint8List shadowsocksCipherTypeDescriptor = $convert.base64Dec
     'ChVTaGFkb3dzb2Nrc0NpcGhlclR5cGUSDwoLQUVTXzEyOF9HQ00QABIPCgtBRVNfMjU2X0dDTR'
     'ABEhUKEUNIQUNIQTIwX1BPTFkxMzA1EAISCAoETk9ORRAD');
 
-@$core.Deprecated('Use shadowsocksAccountDescriptor instead')
-const ShadowsocksAccount$json = {
-  '1': 'ShadowsocksAccount',
-  '2': [
-    {
-      '1': 'cipher_type',
-      '3': 2,
-      '4': 1,
-      '5': 14,
-      '6': '.vx.proxy.shadowsocks.ShadowsocksCipherType',
-      '10': 'cipherType'
-    },
-    {'1': 'iv_check', '3': 3, '4': 1, '5': 8, '10': 'ivCheck'},
-    {
-      '1': 'user',
-      '3': 4,
-      '4': 1,
-      '5': 11,
-      '6': '.vx.user.UserConfig',
-      '10': 'user'
-    },
-    {
-      '1': 'experiment_reduced_iv_head_entropy',
-      '3': 90001,
-      '4': 1,
-      '5': 8,
-      '10': 'experimentReducedIvHeadEntropy'
-    },
-  ],
-};
-
-/// Descriptor for `ShadowsocksAccount`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List shadowsocksAccountDescriptor = $convert.base64Decode(
-    'ChJTaGFkb3dzb2Nrc0FjY291bnQSTAoLY2lwaGVyX3R5cGUYAiABKA4yKy52eC5wcm94eS5zaG'
-    'Fkb3dzb2Nrcy5TaGFkb3dzb2Nrc0NpcGhlclR5cGVSCmNpcGhlclR5cGUSGQoIaXZfY2hlY2sY'
-    'AyABKAhSB2l2Q2hlY2sSJwoEdXNlchgEIAEoCzITLnZ4LnVzZXIuVXNlckNvbmZpZ1IEdXNlch'
-    'JMCiJleHBlcmltZW50X3JlZHVjZWRfaXZfaGVhZF9lbnRyb3B5GJG/BSABKAhSHmV4cGVyaW1l'
-    'bnRSZWR1Y2VkSXZIZWFkRW50cm9weQ==');
-
 @$core.Deprecated('Use shadowsocksServerConfigDescriptor instead')
 const ShadowsocksServerConfig$json = {
   '1': 'ShadowsocksServerConfig',

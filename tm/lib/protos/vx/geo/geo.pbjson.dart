@@ -178,14 +178,6 @@ const GeoConfig$json = {
   '1': 'GeoConfig',
   '2': [
     {
-      '1': 'domain_sets',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.vx.geo.DomainSetConfig',
-      '10': 'domainSets'
-    },
-    {
       '1': 'great_domain_sets',
       '3': 3,
       '4': 3,
@@ -226,18 +218,20 @@ const GeoConfig$json = {
       '10': 'appSets'
     },
   ],
+  '9': [
+    {'1': 1, '2': 2},
+  ],
 };
 
 /// Descriptor for `GeoConfig`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List geoConfigDescriptor = $convert.base64Decode(
-    'CglHZW9Db25maWcSOAoLZG9tYWluX3NldHMYASADKAsyFy52eC5nZW8uRG9tYWluU2V0Q29uZm'
-    'lnUgpkb21haW5TZXRzEkgKEWdyZWF0X2RvbWFpbl9zZXRzGAMgAygLMhwudnguZ2VvLkdyZWF0'
-    'RG9tYWluU2V0Q29uZmlnUg9ncmVhdERvbWFpblNldHMSPAoNZ3JlYXRfaXBfc2V0cxgEIAMoCz'
-    'IYLnZ4Lmdlby5HcmVhdElQU2V0Q29uZmlnUgtncmVhdElwU2V0cxJLChJhdG9taWNfZG9tYWlu'
-    'X3NldHMYBSADKAsyHS52eC5nZW8uQXRvbWljRG9tYWluU2V0Q29uZmlnUhBhdG9taWNEb21haW'
-    '5TZXRzEj8KDmF0b21pY19pcF9zZXRzGAYgAygLMhkudnguZ2VvLkF0b21pY0lQU2V0Q29uZmln'
-    'UgxhdG9taWNJcFNldHMSLwoIYXBwX3NldHMYByADKAsyFC52eC5nZW8uQXBwU2V0Q29uZmlnUg'
-    'dhcHBTZXRz');
+    'CglHZW9Db25maWcSSAoRZ3JlYXRfZG9tYWluX3NldHMYAyADKAsyHC52eC5nZW8uR3JlYXREb2'
+    '1haW5TZXRDb25maWdSD2dyZWF0RG9tYWluU2V0cxI8Cg1ncmVhdF9pcF9zZXRzGAQgAygLMhgu'
+    'dnguZ2VvLkdyZWF0SVBTZXRDb25maWdSC2dyZWF0SXBTZXRzEksKEmF0b21pY19kb21haW5fc2'
+    'V0cxgFIAMoCzIdLnZ4Lmdlby5BdG9taWNEb21haW5TZXRDb25maWdSEGF0b21pY0RvbWFpblNl'
+    'dHMSPwoOYXRvbWljX2lwX3NldHMYBiADKAsyGS52eC5nZW8uQXRvbWljSVBTZXRDb25maWdSDG'
+    'F0b21pY0lwU2V0cxIvCghhcHBfc2V0cxgHIAMoCzIULnZ4Lmdlby5BcHBTZXRDb25maWdSB2Fw'
+    'cFNldHNKBAgBEAI=');
 
 @$core.Deprecated('Use geositeConfigDescriptor instead')
 const GeositeConfig$json = {

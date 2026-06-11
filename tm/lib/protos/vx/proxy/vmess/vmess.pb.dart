@@ -25,13 +25,11 @@ class VmessClientConfig extends $pb.GeneratedMessage {
   factory VmessClientConfig({
     $core.String? id,
     SecurityType? security,
-    $core.bool? special,
     $core.int? alterId,
   }) {
     final result = create();
     if (id != null) result.id = id;
     if (security != null) result.security = security;
-    if (special != null) result.special = special;
     if (alterId != null) result.alterId = alterId;
     return result;
   }
@@ -52,7 +50,6 @@ class VmessClientConfig extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'id')
     ..aE<SecurityType>(4, _omitFieldNames ? '' : 'security',
         enumValues: SecurityType.values)
-    ..aOB(6, _omitFieldNames ? '' : 'special')
     ..aI(7, _omitFieldNames ? '' : 'alterId', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
@@ -93,21 +90,12 @@ class VmessClientConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearSecurity() => $_clearField(4);
 
-  @$pb.TagNumber(6)
-  $core.bool get special => $_getBF(2);
-  @$pb.TagNumber(6)
-  set special($core.bool value) => $_setBool(2, value);
-  @$pb.TagNumber(6)
-  $core.bool hasSpecial() => $_has(2);
-  @$pb.TagNumber(6)
-  void clearSpecial() => $_clearField(6);
-
   @$pb.TagNumber(7)
-  $core.int get alterId => $_getIZ(3);
+  $core.int get alterId => $_getIZ(2);
   @$pb.TagNumber(7)
-  set alterId($core.int value) => $_setUnsignedInt32(3, value);
+  set alterId($core.int value) => $_setUnsignedInt32(2, value);
   @$pb.TagNumber(7)
-  $core.bool hasAlterId() => $_has(3);
+  $core.bool hasAlterId() => $_has(2);
   @$pb.TagNumber(7)
   void clearAlterId() => $_clearField(7);
 }

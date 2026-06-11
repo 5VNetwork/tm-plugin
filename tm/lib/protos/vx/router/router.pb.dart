@@ -631,9 +631,9 @@ class Condition extends $pb.GeneratedMessage {
     $core.bool? resolveDomain,
     $core.bool? skipSniff,
     $core.Iterable<$core.String>? protocols,
+    $core.bool? hasNoDomain,
     $core.bool? resolveSoftRewrite,
     $core.bool? resolveSoftNoRewrite,
-    $core.bool? hasDomain,
   }) {
     final result = create();
     if (srcCidrs != null) result.srcCidrs.addAll(srcCidrs);
@@ -656,11 +656,11 @@ class Condition extends $pb.GeneratedMessage {
     if (resolveDomain != null) result.resolveDomain = resolveDomain;
     if (skipSniff != null) result.skipSniff = skipSniff;
     if (protocols != null) result.protocols.addAll(protocols);
+    if (hasNoDomain != null) result.hasNoDomain = hasNoDomain;
     if (resolveSoftRewrite != null)
       result.resolveSoftRewrite = resolveSoftRewrite;
     if (resolveSoftNoRewrite != null)
       result.resolveSoftNoRewrite = resolveSoftNoRewrite;
-    if (hasDomain != null) result.hasDomain = hasDomain;
     return result;
   }
 
@@ -703,9 +703,9 @@ class Condition extends $pb.GeneratedMessage {
     ..aOB(26, _omitFieldNames ? '' : 'resolveDomain')
     ..aOB(27, _omitFieldNames ? '' : 'skipSniff')
     ..pPS(28, _omitFieldNames ? '' : 'protocols')
+    ..aOB(29, _omitFieldNames ? '' : 'hasNoDomain')
     ..aOB(30, _omitFieldNames ? '' : 'resolveSoftRewrite')
     ..aOB(31, _omitFieldNames ? '' : 'resolveSoftNoRewrite')
-    ..aOB(32, _omitFieldNames ? '' : 'hasDomain')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -826,37 +826,38 @@ class Condition extends $pb.GeneratedMessage {
   @$pb.TagNumber(28)
   $pb.PbList<$core.String> get protocols => $_getList(19);
 
+  /// connection uses ip targets and has no sniffed domain
+  @$pb.TagNumber(29)
+  $core.bool get hasNoDomain => $_getBF(20);
+  @$pb.TagNumber(29)
+  set hasNoDomain($core.bool value) => $_setBool(20, value);
+  @$pb.TagNumber(29)
+  $core.bool hasHasNoDomain() => $_has(20);
+  @$pb.TagNumber(29)
+  void clearHasNoDomain() => $_clearField(29);
+
   /// resolve domain target to ip, and change the target to an ip address that is
   /// in the dst ip set .
   /// Any ip in the dst ip set is okay.
   @$pb.TagNumber(30)
-  $core.bool get resolveSoftRewrite => $_getBF(20);
+  $core.bool get resolveSoftRewrite => $_getBF(21);
   @$pb.TagNumber(30)
-  set resolveSoftRewrite($core.bool value) => $_setBool(20, value);
+  set resolveSoftRewrite($core.bool value) => $_setBool(21, value);
   @$pb.TagNumber(30)
-  $core.bool hasResolveSoftRewrite() => $_has(20);
+  $core.bool hasResolveSoftRewrite() => $_has(21);
   @$pb.TagNumber(30)
   void clearResolveSoftRewrite() => $_clearField(30);
 
   /// resolve domain target to ip, but do not change the target to ip.
   /// Any ip in the dst ip set is okay.
   @$pb.TagNumber(31)
-  $core.bool get resolveSoftNoRewrite => $_getBF(21);
+  $core.bool get resolveSoftNoRewrite => $_getBF(22);
   @$pb.TagNumber(31)
-  set resolveSoftNoRewrite($core.bool value) => $_setBool(21, value);
+  set resolveSoftNoRewrite($core.bool value) => $_setBool(22, value);
   @$pb.TagNumber(31)
-  $core.bool hasResolveSoftNoRewrite() => $_has(21);
+  $core.bool hasResolveSoftNoRewrite() => $_has(22);
   @$pb.TagNumber(31)
   void clearResolveSoftNoRewrite() => $_clearField(31);
-
-  @$pb.TagNumber(32)
-  $core.bool get hasDomain => $_getBF(22);
-  @$pb.TagNumber(32)
-  set hasDomain($core.bool value) => $_setBool(22, value);
-  @$pb.TagNumber(32)
-  $core.bool hasHasDomain() => $_has(22);
-  @$pb.TagNumber(32)
-  void clearHasDomain() => $_clearField(32);
 }
 
 class SelectorConfig_Filter extends $pb.GeneratedMessage {

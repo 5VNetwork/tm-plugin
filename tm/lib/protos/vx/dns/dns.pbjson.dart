@@ -105,14 +105,6 @@ const DnsConfig$json = {
       '6': '.vx.dns.DnsHijackConfig',
       '10': 'dnsHijack'
     },
-    {
-      '1': 'resolvers',
-      '3': 12,
-      '4': 3,
-      '5': 11,
-      '6': '.vx.dns.Resolver',
-      '10': 'resolvers'
-    },
   ],
 };
 
@@ -126,8 +118,7 @@ final $typed_data.Uint8List dnsConfigDescriptor = $convert.base64Decode(
     'luUmVzb2x2ZXISUQoWY29uY3VycmVudF9kbnNfc2VydmVycxgJIAMoCzIbLnZ4LmRucy5Db25j'
     'dXJyZW50RG5zU2VydmVyUhRjb25jdXJyZW50RG5zU2VydmVycxJFChJzZXJpYWxfZG5zX3Nlcn'
     'ZlcnMYCiADKAsyFy52eC5kbnMuU2VyaWFsRG5zU2VydmVyUhBzZXJpYWxEbnNTZXJ2ZXJzEjYK'
-    'CmRuc19oaWphY2sYCyABKAsyFy52eC5kbnMuRG5zSGlqYWNrQ29uZmlnUglkbnNIaWphY2sSLg'
-    'oJcmVzb2x2ZXJzGAwgAygLMhAudnguZG5zLlJlc29sdmVyUglyZXNvbHZlcnM=');
+    'CmRuc19oaWphY2sYCyABKAsyFy52eC5kbnMuRG5zSGlqYWNrQ29uZmlnUglkbnNIaWphY2s=');
 
 @$core.Deprecated('Use dnsHijackConfigDescriptor instead')
 const DnsHijackConfig$json = {
@@ -390,14 +381,12 @@ const QuicDnsServer$json = {
   '1': 'QuicDnsServer',
   '2': [
     {'1': 'address', '3': 2, '4': 1, '5': 9, '10': 'address'},
-    {'1': 'server_name', '3': 3, '4': 1, '5': 9, '10': 'serverName'},
   ],
 };
 
 /// Descriptor for `QuicDnsServer`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List quicDnsServerDescriptor = $convert.base64Decode(
-    'Cg1RdWljRG5zU2VydmVyEhgKB2FkZHJlc3MYAiABKAlSB2FkZHJlc3MSHwoLc2VydmVyX25hbW'
-    'UYAyABKAlSCnNlcnZlck5hbWU=');
+final $typed_data.Uint8List quicDnsServerDescriptor = $convert
+    .base64Decode('Cg1RdWljRG5zU2VydmVyEhgKB2FkZHJlc3MYAiABKAlSB2FkZHJlc3M=');
 
 @$core.Deprecated('Use goDnsServerDescriptor instead')
 const GoDnsServer$json = {

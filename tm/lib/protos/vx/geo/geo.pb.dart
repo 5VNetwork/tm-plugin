@@ -540,7 +540,6 @@ class AtomicIPSetConfig extends $pb.GeneratedMessage {
 
 class GeoConfig extends $pb.GeneratedMessage {
   factory GeoConfig({
-    $core.Iterable<DomainSetConfig>? domainSets,
     $core.Iterable<GreatDomainSetConfig>? greatDomainSets,
     $core.Iterable<GreatIPSetConfig>? greatIpSets,
     $core.Iterable<AtomicDomainSetConfig>? atomicDomainSets,
@@ -548,7 +547,6 @@ class GeoConfig extends $pb.GeneratedMessage {
     $core.Iterable<AppSetConfig>? appSets,
   }) {
     final result = create();
-    if (domainSets != null) result.domainSets.addAll(domainSets);
     if (greatDomainSets != null) result.greatDomainSets.addAll(greatDomainSets);
     if (greatIpSets != null) result.greatIpSets.addAll(greatIpSets);
     if (atomicDomainSets != null)
@@ -571,8 +569,6 @@ class GeoConfig extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GeoConfig',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.geo'),
       createEmptyInstance: create)
-    ..pPM<DomainSetConfig>(1, _omitFieldNames ? '' : 'domainSets',
-        subBuilder: DomainSetConfig.create)
     ..pPM<GreatDomainSetConfig>(3, _omitFieldNames ? '' : 'greatDomainSets',
         subBuilder: GreatDomainSetConfig.create)
     ..pPM<GreatIPSetConfig>(4, _omitFieldNames ? '' : 'greatIpSets',
@@ -603,25 +599,22 @@ class GeoConfig extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GeoConfig>(create);
   static GeoConfig? _defaultInstance;
 
-  @$pb.TagNumber(1)
-  $pb.PbList<DomainSetConfig> get domainSets => $_getList(0);
-
   /// There should be no same name in great_domain_sets and atomic_domain_sets.
   /// Same for great_ip_sets and atomic_ip_sets.
   @$pb.TagNumber(3)
-  $pb.PbList<GreatDomainSetConfig> get greatDomainSets => $_getList(1);
+  $pb.PbList<GreatDomainSetConfig> get greatDomainSets => $_getList(0);
 
   @$pb.TagNumber(4)
-  $pb.PbList<GreatIPSetConfig> get greatIpSets => $_getList(2);
+  $pb.PbList<GreatIPSetConfig> get greatIpSets => $_getList(1);
 
   @$pb.TagNumber(5)
-  $pb.PbList<AtomicDomainSetConfig> get atomicDomainSets => $_getList(3);
+  $pb.PbList<AtomicDomainSetConfig> get atomicDomainSets => $_getList(2);
 
   @$pb.TagNumber(6)
-  $pb.PbList<AtomicIPSetConfig> get atomicIpSets => $_getList(4);
+  $pb.PbList<AtomicIPSetConfig> get atomicIpSets => $_getList(3);
 
   @$pb.TagNumber(7)
-  $pb.PbList<AppSetConfig> get appSets => $_getList(5);
+  $pb.PbList<AppSetConfig> get appSets => $_getList(4);
 }
 
 class GeositeConfig extends $pb.GeneratedMessage {

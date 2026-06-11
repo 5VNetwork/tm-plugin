@@ -291,7 +291,7 @@ const Condition$json = {
     {'1': 'app_tags', '3': 24, '4': 3, '5': 9, '10': 'appTags'},
     {'1': 'all_tags', '3': 25, '4': 3, '5': 9, '10': 'allTags'},
     {'1': 'protocols', '3': 28, '4': 3, '5': 9, '10': 'protocols'},
-    {'1': 'has_domain', '3': 32, '4': 1, '5': 8, '10': 'hasDomain'},
+    {'1': 'has_no_domain', '3': 29, '4': 1, '5': 8, '10': 'hasNoDomain'},
   ],
 };
 
@@ -312,7 +312,7 @@ final $typed_data.Uint8List conditionDescriptor = $convert.base64Decode(
     'dngucm91dGVyLkFwcElkUgZhcHBJZHMSEgoEaXB2NhgUIAEoCFIEaXB2NhIXCgdmYWtlX2lwGB'
     'YgASgIUgZmYWtlSXASGwoJbWF0Y2hfYWxsGBcgASgIUghtYXRjaEFsbBIZCghhcHBfdGFncxgY'
     'IAMoCVIHYXBwVGFncxIZCghhbGxfdGFncxgZIAMoCVIHYWxsVGFncxIcCglwcm90b2NvbHMYHC'
-    'ADKAlSCXByb3RvY29scxIdCgpoYXNfZG9tYWluGCAgASgIUgloYXNEb21haW4=');
+    'ADKAlSCXByb3RvY29scxIiCg1oYXNfbm9fZG9tYWluGB0gASgIUgtoYXNOb0RvbWFpbg==');
 
 @$core.Deprecated('Use selectorConfigDescriptor instead')
 const SelectorConfig$json = {

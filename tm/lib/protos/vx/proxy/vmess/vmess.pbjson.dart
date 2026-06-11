@@ -49,7 +49,6 @@ const VmessClientConfig$json = {
       '6': '.vx.proxy.vmess.SecurityType',
       '10': 'security'
     },
-    {'1': 'special', '3': 6, '4': 1, '5': 8, '10': 'special'},
     {'1': 'alter_id', '3': 7, '4': 1, '5': 13, '10': 'alterId'},
   ],
 };
@@ -57,8 +56,8 @@ const VmessClientConfig$json = {
 /// Descriptor for `VmessClientConfig`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List vmessClientConfigDescriptor = $convert.base64Decode(
     'ChFWbWVzc0NsaWVudENvbmZpZxIOCgJpZBgDIAEoCVICaWQSOAoIc2VjdXJpdHkYBCABKA4yHC'
-    '52eC5wcm94eS52bWVzcy5TZWN1cml0eVR5cGVSCHNlY3VyaXR5EhgKB3NwZWNpYWwYBiABKAhS'
-    'B3NwZWNpYWwSGQoIYWx0ZXJfaWQYByABKA1SB2FsdGVySWQ=');
+    '52eC5wcm94eS52bWVzcy5TZWN1cml0eVR5cGVSCHNlY3VyaXR5EhkKCGFsdGVyX2lkGAcgASgN'
+    'UgdhbHRlcklk');
 
 @$core.Deprecated('Use vmessServerConfigDescriptor instead')
 const VmessServerConfig$json = {

@@ -120,7 +120,6 @@ class DeviceConfig extends $pb.GeneratedMessage {
     $core.int? mtu,
     $core.int? numWorkers,
     $core.List<$core.int>? reserved,
-    $core.bool? isClient,
     $core.bool? noKernelTun,
   }) {
     final result = create();
@@ -130,7 +129,6 @@ class DeviceConfig extends $pb.GeneratedMessage {
     if (mtu != null) result.mtu = mtu;
     if (numWorkers != null) result.numWorkers = numWorkers;
     if (reserved != null) result.reserved = reserved;
-    if (isClient != null) result.isClient = isClient;
     if (noKernelTun != null) result.noKernelTun = noKernelTun;
     return result;
   }
@@ -157,7 +155,6 @@ class DeviceConfig extends $pb.GeneratedMessage {
     ..aI(5, _omitFieldNames ? '' : 'numWorkers')
     ..a<$core.List<$core.int>>(
         6, _omitFieldNames ? '' : 'reserved', $pb.PbFieldType.OY)
-    ..aOB(8, _omitFieldNames ? '' : 'isClient')
     ..aOB(9, _omitFieldNames ? '' : 'noKernelTun')
     ..hasRequiredFields = false;
 
@@ -222,21 +219,12 @@ class DeviceConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearReserved() => $_clearField(6);
 
-  @$pb.TagNumber(8)
-  $core.bool get isClient => $_getBF(6);
-  @$pb.TagNumber(8)
-  set isClient($core.bool value) => $_setBool(6, value);
-  @$pb.TagNumber(8)
-  $core.bool hasIsClient() => $_has(6);
-  @$pb.TagNumber(8)
-  void clearIsClient() => $_clearField(8);
-
   @$pb.TagNumber(9)
-  $core.bool get noKernelTun => $_getBF(7);
+  $core.bool get noKernelTun => $_getBF(6);
   @$pb.TagNumber(9)
-  set noKernelTun($core.bool value) => $_setBool(7, value);
+  set noKernelTun($core.bool value) => $_setBool(6, value);
   @$pb.TagNumber(9)
-  $core.bool hasNoKernelTun() => $_has(7);
+  $core.bool hasNoKernelTun() => $_has(6);
   @$pb.TagNumber(9)
   void clearNoKernelTun() => $_clearField(9);
 }
