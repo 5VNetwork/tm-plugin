@@ -187,6 +187,7 @@ class RuleConfig_Fallback extends $pb.GeneratedMessage {
     $core.bool? matchAll,
     Condition? condition,
     $core.bool? last,
+    $core.Iterable<Condition>? conditions,
   }) {
     final result = create();
     if (selectorTag != null) result.selectorTag = selectorTag;
@@ -197,6 +198,7 @@ class RuleConfig_Fallback extends $pb.GeneratedMessage {
     if (matchAll != null) result.matchAll = matchAll;
     if (condition != null) result.condition = condition;
     if (last != null) result.last = last;
+    if (conditions != null) result.conditions.addAll(conditions);
     return result;
   }
 
@@ -223,6 +225,8 @@ class RuleConfig_Fallback extends $pb.GeneratedMessage {
     ..aOM<Condition>(13, _omitFieldNames ? '' : 'condition',
         subBuilder: Condition.create)
     ..aOB(14, _omitFieldNames ? '' : 'last')
+    ..pPM<Condition>(15, _omitFieldNames ? '' : 'conditions',
+        subBuilder: Condition.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -308,6 +312,9 @@ class RuleConfig_Fallback extends $pb.GeneratedMessage {
   $core.bool hasLast() => $_has(7);
   @$pb.TagNumber(14)
   void clearLast() => $_clearField(14);
+
+  @$pb.TagNumber(15)
+  $pb.PbList<Condition> get conditions => $_getList(8);
 }
 
 class RuleConfig extends $pb.GeneratedMessage {
@@ -339,6 +346,7 @@ class RuleConfig extends $pb.GeneratedMessage {
     $core.bool? resolveSoftRewrite,
     $core.bool? resolveSoftNoRewrite,
     Condition? condition,
+    $core.Iterable<Condition>? conditions,
   }) {
     final result = create();
     if (outboundTag != null) result.outboundTag = outboundTag;
@@ -370,6 +378,7 @@ class RuleConfig extends $pb.GeneratedMessage {
     if (resolveSoftNoRewrite != null)
       result.resolveSoftNoRewrite = resolveSoftNoRewrite;
     if (condition != null) result.condition = condition;
+    if (conditions != null) result.conditions.addAll(conditions);
     return result;
   }
 
@@ -420,6 +429,8 @@ class RuleConfig extends $pb.GeneratedMessage {
     ..aOB(30, _omitFieldNames ? '' : 'resolveSoftRewrite')
     ..aOB(31, _omitFieldNames ? '' : 'resolveSoftNoRewrite')
     ..aOM<Condition>(32, _omitFieldNames ? '' : 'condition',
+        subBuilder: Condition.create)
+    ..pPM<Condition>(33, _omitFieldNames ? '' : 'conditions',
         subBuilder: Condition.create)
     ..hasRequiredFields = false;
 
@@ -607,6 +618,10 @@ class RuleConfig extends $pb.GeneratedMessage {
   void clearCondition() => $_clearField(32);
   @$pb.TagNumber(32)
   Condition ensureCondition() => $_ensure(26);
+
+  /// all conditions must match for the rule to apply
+  @$pb.TagNumber(33)
+  $pb.PbList<Condition> get conditions => $_getList(27);
 }
 
 class Condition extends $pb.GeneratedMessage {
@@ -625,7 +640,6 @@ class Condition extends $pb.GeneratedMessage {
     $core.Iterable<AppId>? appIds,
     $core.bool? ipv6,
     $core.bool? fakeIp,
-    $core.bool? matchAll,
     $core.Iterable<$core.String>? appTags,
     $core.Iterable<$core.String>? allTags,
     $core.bool? resolveDomain,
@@ -650,7 +664,6 @@ class Condition extends $pb.GeneratedMessage {
     if (appIds != null) result.appIds.addAll(appIds);
     if (ipv6 != null) result.ipv6 = ipv6;
     if (fakeIp != null) result.fakeIp = fakeIp;
-    if (matchAll != null) result.matchAll = matchAll;
     if (appTags != null) result.appTags.addAll(appTags);
     if (allTags != null) result.allTags.addAll(allTags);
     if (resolveDomain != null) result.resolveDomain = resolveDomain;
@@ -697,7 +710,6 @@ class Condition extends $pb.GeneratedMessage {
     ..pPM<AppId>(19, _omitFieldNames ? '' : 'appIds', subBuilder: AppId.create)
     ..aOB(20, _omitFieldNames ? '' : 'ipv6')
     ..aOB(22, _omitFieldNames ? '' : 'fakeIp')
-    ..aOB(23, _omitFieldNames ? '' : 'matchAll')
     ..pPS(24, _omitFieldNames ? '' : 'appTags')
     ..pPS(25, _omitFieldNames ? '' : 'allTags')
     ..aOB(26, _omitFieldNames ? '' : 'resolveDomain')
@@ -786,53 +798,44 @@ class Condition extends $pb.GeneratedMessage {
   @$pb.TagNumber(22)
   void clearFakeIp() => $_clearField(22);
 
-  @$pb.TagNumber(23)
-  $core.bool get matchAll => $_getBF(14);
-  @$pb.TagNumber(23)
-  set matchAll($core.bool value) => $_setBool(14, value);
-  @$pb.TagNumber(23)
-  $core.bool hasMatchAll() => $_has(14);
-  @$pb.TagNumber(23)
-  void clearMatchAll() => $_clearField(23);
-
   @$pb.TagNumber(24)
-  $pb.PbList<$core.String> get appTags => $_getList(15);
+  $pb.PbList<$core.String> get appTags => $_getList(14);
 
   @$pb.TagNumber(25)
-  $pb.PbList<$core.String> get allTags => $_getList(16);
+  $pb.PbList<$core.String> get allTags => $_getList(15);
 
   /// resolve domain to ip when ip is not available
   /// All ips must be in the dst ip set.
   @$pb.TagNumber(26)
-  $core.bool get resolveDomain => $_getBF(17);
+  $core.bool get resolveDomain => $_getBF(16);
   @$pb.TagNumber(26)
-  set resolveDomain($core.bool value) => $_setBool(17, value);
+  set resolveDomain($core.bool value) => $_setBool(16, value);
   @$pb.TagNumber(26)
-  $core.bool hasResolveDomain() => $_has(17);
+  $core.bool hasResolveDomain() => $_has(16);
   @$pb.TagNumber(26)
   void clearResolveDomain() => $_clearField(26);
 
   /// skip sniff for connectiosn use ip targets.
   /// By default, sniffing is enabled for connections with ip targets.
   @$pb.TagNumber(27)
-  $core.bool get skipSniff => $_getBF(18);
+  $core.bool get skipSniff => $_getBF(17);
   @$pb.TagNumber(27)
-  set skipSniff($core.bool value) => $_setBool(18, value);
+  set skipSniff($core.bool value) => $_setBool(17, value);
   @$pb.TagNumber(27)
-  $core.bool hasSkipSniff() => $_has(18);
+  $core.bool hasSkipSniff() => $_has(17);
   @$pb.TagNumber(27)
   void clearSkipSniff() => $_clearField(27);
 
   @$pb.TagNumber(28)
-  $pb.PbList<$core.String> get protocols => $_getList(19);
+  $pb.PbList<$core.String> get protocols => $_getList(18);
 
   /// connection uses ip targets and has no sniffed domain
   @$pb.TagNumber(29)
-  $core.bool get hasNoDomain => $_getBF(20);
+  $core.bool get hasNoDomain => $_getBF(19);
   @$pb.TagNumber(29)
-  set hasNoDomain($core.bool value) => $_setBool(20, value);
+  set hasNoDomain($core.bool value) => $_setBool(19, value);
   @$pb.TagNumber(29)
-  $core.bool hasHasNoDomain() => $_has(20);
+  $core.bool hasHasNoDomain() => $_has(19);
   @$pb.TagNumber(29)
   void clearHasNoDomain() => $_clearField(29);
 
@@ -840,22 +843,22 @@ class Condition extends $pb.GeneratedMessage {
   /// in the dst ip set .
   /// Any ip in the dst ip set is okay.
   @$pb.TagNumber(30)
-  $core.bool get resolveSoftRewrite => $_getBF(21);
+  $core.bool get resolveSoftRewrite => $_getBF(20);
   @$pb.TagNumber(30)
-  set resolveSoftRewrite($core.bool value) => $_setBool(21, value);
+  set resolveSoftRewrite($core.bool value) => $_setBool(20, value);
   @$pb.TagNumber(30)
-  $core.bool hasResolveSoftRewrite() => $_has(21);
+  $core.bool hasResolveSoftRewrite() => $_has(20);
   @$pb.TagNumber(30)
   void clearResolveSoftRewrite() => $_clearField(30);
 
   /// resolve domain target to ip, but do not change the target to ip.
   /// Any ip in the dst ip set is okay.
   @$pb.TagNumber(31)
-  $core.bool get resolveSoftNoRewrite => $_getBF(22);
+  $core.bool get resolveSoftNoRewrite => $_getBF(21);
   @$pb.TagNumber(31)
-  set resolveSoftNoRewrite($core.bool value) => $_setBool(22, value);
+  set resolveSoftNoRewrite($core.bool value) => $_setBool(21, value);
   @$pb.TagNumber(31)
-  $core.bool hasResolveSoftNoRewrite() => $_has(22);
+  $core.bool hasResolveSoftNoRewrite() => $_has(21);
   @$pb.TagNumber(31)
   void clearResolveSoftNoRewrite() => $_clearField(31);
 }
