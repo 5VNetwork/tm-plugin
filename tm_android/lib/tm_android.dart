@@ -14,7 +14,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tm/protos/vx/client.pb.dart';
@@ -30,27 +32,54 @@ class TmAndroid extends TmPlatform {
     TmPlatform.instance = TmAndroid();
   }
 
+  static TmAndroid? get current {
+    if (!Platform.isAndroid) {
+      return null;
+    }
+    final platform = TmPlatform.instance;
+    return platform is TmAndroid ? platform : null;
+  }
+
   final TmAndroidApi _api = TmAndroidApi();
   final BehaviorSubject<TmStatusChange> _stateStreamCtrl =
       BehaviorSubject<TmStatusChange>.seeded(
           const TmStatusChange(status: TmStatus.unknown));
+  final BehaviorSubject<bool> _systemManagedCtrl =
+      BehaviorSubject<bool>.seeded(false);
   bool _streamingStarted = false;
   final e = const EventChannel('tm_channel');
+
+  Future<void> _refreshSystemManaged() async {
+    if (!Platform.isAndroid) {
+      return;
+    }
+    try {
+      _systemManagedCtrl.add(await _api.isSystemManaged());
+    } catch (e) {
+      debugPrint(e.toString());
+      _systemManagedCtrl.add(false);
+    }
+  }
 
   _init() {
     if (_streamingStarted) return;
     _streamingStarted = true;
     _api.getStatus().then((status) {
       _stateStreamCtrl.add(TmStatusChange(status: _statusFromInt(status)));
+      _refreshSystemManaged();
     });
     e.receiveBroadcastStream().listen((d) {
       if (d is int) {
-        return _stateStreamCtrl.add(TmStatusChange(status: _statusFromInt(d)));
+        _stateStreamCtrl.add(TmStatusChange(status: _statusFromInt(d)));
+        _refreshSystemManaged();
+        return;
       }
       if (d is String && d.contains("revoked by system")) {
+        _refreshSystemManaged();
         return _stateStreamCtrl
             .add(const TmStatusChange(status: TmStatus.disconnected));
       }
+      _refreshSystemManaged();
       return _stateStreamCtrl
           .add(TmStatusChange(status: TmStatus.disconnected, error: d));
     });
@@ -81,6 +110,20 @@ class TmAndroid extends TmPlatform {
   Stream<TmStatusChange> get stateStream {
     _init();
     return _stateStreamCtrl.stream;
+  }
+
+  Stream<bool> get systemManagedVpnStream {
+    _init();
+    return _systemManagedCtrl.stream;
+  }
+
+  bool get isSystemManagedVpn {
+    _init();
+    return _systemManagedCtrl.value;
+  }
+
+  Future<void> openVpnSettings() async {
+    await _api.openVpnSettings();
   }
 
   @override

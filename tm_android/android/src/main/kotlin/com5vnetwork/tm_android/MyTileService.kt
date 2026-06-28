@@ -132,6 +132,10 @@ class  MyTileService : TileService() {
     override fun onClick() {
         Log.d("MyTileService", "onClick")
         if (qsTile.state == Tile.STATE_ACTIVE) {
+            if (tmVpnService?.systemManaged == true) {
+                Log.d("MyTileService", "ignore disconnect while system managed")
+                return
+            }
             var intent = Intent(this, TmVpnService::class.java).
             setAction(TmVpnService.ACTION_DISCONNECT)
             startService(intent)
@@ -141,7 +145,8 @@ class  MyTileService : TileService() {
                 Log.e("MyTileServce", "prepareIntent is not null")
             }
             var intent = Intent(this, TmVpnService::class.java).
-            setAction(TmVpnService.ACTION_CONNECT)
+            setAction(TmVpnService.ACTION_CONNECT).
+            putExtra(TmVpnService.EXTRA_STARTED_BY_APP, true)
             startForegroundService( intent)
         }
         super.onClick()

@@ -21,6 +21,7 @@ import android.app.Activity.RESULT_OK
 import android.app.Service
 import android.app.StatusBarManager
 import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.net.VpnService
@@ -29,6 +30,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import android.provider.Settings
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -43,6 +45,7 @@ import io.tm.android.x_android.X_android
 
 /** TmAndroidPlugin */
 class TmAndroidPlugin: FlutterPlugin, ActivityAware, TmAndroidApi {
+  private lateinit var applicationContext: Context
   private lateinit var activityBinding : ActivityPluginBinding
   private lateinit var eventChannel: EventChannel
   private var tmVpnService : TmVpnService? = null
@@ -58,6 +61,7 @@ class TmAndroidPlugin: FlutterPlugin, ActivityAware, TmAndroidApi {
   }
   override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     Log.d("TmAndroidPlugin", "onAttachedToEngine")
+    applicationContext = binding.applicationContext
     TmAndroidApi.setUp(binding.binaryMessenger, this);
     eventChannel = EventChannel(binding.binaryMessenger, "tm_channel")
     eventChannel.setStreamHandler(VpnStateHandler)
@@ -94,6 +98,17 @@ class TmAndroidPlugin: FlutterPlugin, ActivityAware, TmAndroidApi {
       return tmVpnService!!.state.ordinal.toLong()
     }
     return -1
+  }
+
+  override fun isSystemManaged(): Boolean {
+    return tmVpnService?.systemManaged == true
+  }
+
+  override fun openVpnSettings() {
+    val intent = Intent(Settings.ACTION_VPN_SETTINGS).apply {
+      addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
+    applicationContext.startActivity(intent)
   }
 
   override fun config(): ByteArray {
@@ -179,12 +194,17 @@ class TmAndroidPlugin: FlutterPlugin, ActivityAware, TmAndroidApi {
     val b = Bundle()
     b.putByteArray("config", config)
     intent = Intent(activityBinding.activity.applicationContext, TmVpnService::class.java).
-    setAction(TmVpnService.ACTION_CONNECT).putExtras(b)
+    setAction(TmVpnService.ACTION_CONNECT).
+    putExtra(TmVpnService.EXTRA_STARTED_BY_APP, true).
+    putExtras(b)
     ContextCompat.startForegroundService(activityBinding.activity.applicationContext, intent)
     callback(Result.success(Unit))
   }
 
   override fun stop() {
+    if (tmVpnService?.systemManaged == true) {
+      throw FlutterError("system_managed", "VPN is managed by Android system settings")
+    }
     if (tmVpnService?.state != TmVpnService.State.STARTED) {
       throw FlutterError("state is not started, stop the service when state is started", "state: ${tmVpnService?.state.toString()}")
     }

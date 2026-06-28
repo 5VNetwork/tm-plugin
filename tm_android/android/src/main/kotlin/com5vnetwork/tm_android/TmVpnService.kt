@@ -59,6 +59,8 @@ class TmVpnService : VpnService(), AndroidApiInterface {
     companion object {
         const val ACTION_CONNECT = "com.example.android.tmAndroid.START"
         const val ACTION_DISCONNECT = "com.example.android.tmAndroid.STOP"
+        const val EXTRA_STARTED_BY_APP = "started_by_app"
+        const val CONFIG_FILE_NAME = "config"
         // Bumped id so devices that already created the old channel pick up setShowBadge(false).
         private const val NOTIFICATION_CHANNEL_ID = "VX_NOTIFICATION_CHANNEL_NO_BADGE"
         private const val NOTIFICATION_ID = 1
@@ -66,6 +68,8 @@ class TmVpnService : VpnService(), AndroidApiInterface {
 
     private val localBinder = LocalBinder(this)
     var state: State = State.STOPPED
+    var systemManaged: Boolean = false
+        private set
     private var tm: Tm? = null
     private var networkCallbackObject: ConnectivityManager.NetworkCallback? = null
     private var parcelFileDescriptor: ParcelFileDescriptor? = null
@@ -104,20 +108,24 @@ class TmVpnService : VpnService(), AndroidApiInterface {
     // runs on main thread
     @OptIn(DelicateCoroutinesApi::class)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        // intent is null when system is restarting service, but since I returns NOT_STICKY,
-        // which means system does not restart service, this case theoretically won't happen
+        val startIntent = intent ?: Intent()
         if (intent == null) {
-            Log.wtf("TmVpnService.onStartCommand", "a null intent is given to onStartCommand")
-        } else if (ACTION_DISCONNECT == intent.action && state == State.STARTED) {
+            Log.w("TmVpnService.onStartCommand", "null intent, treating as system start")
+        } else if (ACTION_DISCONNECT == startIntent.action && state == State.STARTED) {
+            if (systemManaged) {
+                Log.d("TmVpnService.onStartCommand", "ignore disconnect while system managed")
+                return START_NOT_STICKY
+            }
             Log.d("TmVpnService.onStartCommand", "ACTION_DISCONNECT")
             stop()
         } else if (state == State.STOPPED) {
+            systemManaged = !startIntent.getBooleanExtra(EXTRA_STARTED_BY_APP, false)
             setTmState(State.STARTING)
             val thisService = this
             GlobalScope.launch(Dispatchers.IO) {
                 try {
-                    if (intent.getByteArrayExtra("config") == null) {
-                        val configPath = filesDir.path + "/config"
+                    if (startIntent.getByteArrayExtra("config") == null) {
+                        val configPath = filesDir.path + "/$CONFIG_FILE_NAME"
                         val file = File(configPath)
                         if (file.exists()) {
                             config = file.readBytes() // Or just file.readText() for default UTF-8
@@ -143,6 +151,7 @@ class TmVpnService : VpnService(), AndroidApiInterface {
                         parcelFileDescriptor?.close()
                         parcelFileDescriptor = null
                         TmAndroidPlugin.VpnStateHandler.notifyFlutterError(e.toString())
+                        systemManaged = false
                         setTmState(State.STOPPED)
                     }
                 }
@@ -193,6 +202,7 @@ class TmVpnService : VpnService(), AndroidApiInterface {
             withContext(Dispatchers.Main) {
                 ServiceCompat.stopForeground(service, ServiceCompat.STOP_FOREGROUND_REMOVE)
                 stopSelf()
+                systemManaged = false
                 setTmState(State.STOPPED)
                 Log.d("stop self", "stop self done ${LocalDateTime.now()}")
             }

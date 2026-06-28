@@ -33,6 +33,8 @@ abstract class TmAndroidApi {
   void stop();
   int getStatus();
   Uint8List config();
+  bool isSystemManaged();
+  void openVpnSettings();
   // @async
   // int startTun(TunConfig config);
   // void closeTun();
