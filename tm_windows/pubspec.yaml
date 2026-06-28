@@ -52,6 +52,7 @@ flutter:
   assets:
     - assets/x.dll
     - assets/vx_service.zip
+    - assets/wintun.dll
     # - assets/vx_core.exe
     # - assets/service_install.exe
   #
