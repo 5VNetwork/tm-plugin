@@ -34,7 +34,8 @@ class XTunnelApi: XIosApi {
 
     private static let defaultSharedDirectory: URL! = FileManager.default
         .containerURL(
-            forSecurityApplicationGroupIdentifier: "group.com.5vnetwork.x")
+            forSecurityApplicationGroupIdentifier: "group." + Bundle
+                .main.bundleIdentifier!)
 
     init() {
         _prepare()
