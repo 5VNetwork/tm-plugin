@@ -182,6 +182,14 @@ const Hysteria2ClientConfig$json = {
       '6': '.vx.proxy.hysteria.ObfsConfig',
       '10': 'obfs'
     },
+    {
+      '1': 'realm',
+      '3': 16,
+      '4': 1,
+      '5': 11,
+      '6': '.vx.proxy.hysteria.RealmConfig',
+      '10': 'realm'
+    },
   ],
 };
 
@@ -192,7 +200,8 @@ final $typed_data.Uint8List hysteria2ClientConfigDescriptor = $convert.base64Dec
     'ZxIxCgRxdWljGAwgASgLMh0udngucHJveHkuaHlzdGVyaWEuUXVpY0NvbmZpZ1IEcXVpYxIbCg'
     'lmYXN0X29wZW4YDSABKAhSCGZhc3RPcGVuEkAKCWJhbmR3aWR0aBgOIAEoCzIiLnZ4LnByb3h5'
     'Lmh5c3RlcmlhLkJhbmR3aWR0aENvbmZpZ1IJYmFuZHdpZHRoEjEKBG9iZnMYDyABKAsyHS52eC'
-    '5wcm94eS5oeXN0ZXJpYS5PYmZzQ29uZmlnUgRvYmZz');
+    '5wcm94eS5oeXN0ZXJpYS5PYmZzQ29uZmlnUgRvYmZzEjQKBXJlYWxtGBAgASgLMh4udngucHJv'
+    'eHkuaHlzdGVyaWEuUmVhbG1Db25maWdSBXJlYWxt');
 
 @$core.Deprecated('Use hysteria2ServerConfigDescriptor instead')
 const Hysteria2ServerConfig$json = {
@@ -246,6 +255,14 @@ const Hysteria2ServerConfig$json = {
       '10': 'tlsConfig'
     },
     {'1': 'addresses', '3': 9, '4': 3, '5': 9, '10': 'addresses'},
+    {
+      '1': 'realm',
+      '3': 11,
+      '4': 1,
+      '5': 11,
+      '6': '.vx.proxy.hysteria.RealmConfig',
+      '10': 'realm'
+    },
   ],
 };
 
@@ -258,7 +275,62 @@ final $typed_data.Uint8List hysteria2ServerConfigDescriptor = $convert.base64Dec
     'Q29uZmlnUgRxdWljEjYKF2lnbm9yZV9jbGllbnRfYmFuZHdpZHRoGAcgASgIUhVpZ25vcmVDbG'
     'llbnRCYW5kd2lkdGgSQwoKdGxzX2NvbmZpZxgIIAEoCzIkLnZ4LnRyYW5zcG9ydC5zZWN1cml0'
     'eS50bHMuVGxzQ29uZmlnUgl0bHNDb25maWcSHAoJYWRkcmVzc2VzGAkgAygJUglhZGRyZXNzZX'
-    'M=');
+    'MSNAoFcmVhbG0YCyABKAsyHi52eC5wcm94eS5oeXN0ZXJpYS5SZWFsbUNvbmZpZ1IFcmVhbG0=');
+
+@$core.Deprecated('Use realmPortMappingConfigDescriptor instead')
+const RealmPortMappingConfig$json = {
+  '1': 'RealmPortMappingConfig',
+  '2': [
+    {'1': 'enabled', '3': 1, '4': 1, '5': 8, '10': 'enabled'},
+    {'1': 'timeout', '3': 2, '4': 1, '5': 13, '10': 'timeout'},
+    {'1': 'lifetime', '3': 3, '4': 1, '5': 13, '10': 'lifetime'},
+  ],
+};
+
+/// Descriptor for `RealmPortMappingConfig`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List realmPortMappingConfigDescriptor =
+    $convert.base64Decode(
+        'ChZSZWFsbVBvcnRNYXBwaW5nQ29uZmlnEhgKB2VuYWJsZWQYASABKAhSB2VuYWJsZWQSGAoHdG'
+        'ltZW91dBgCIAEoDVIHdGltZW91dBIaCghsaWZldGltZRgDIAEoDVIIbGlmZXRpbWU=');
+
+@$core.Deprecated('Use realmConfigDescriptor instead')
+const RealmConfig$json = {
+  '1': 'RealmConfig',
+  '2': [
+    {'1': 'realm_addr', '3': 10, '4': 1, '5': 9, '10': 'realmAddr'},
+    {'1': 'local_port', '3': 11, '4': 1, '5': 13, '10': 'localPort'},
+    {'1': 'stun_servers', '3': 1, '4': 3, '5': 9, '10': 'stunServers'},
+    {'1': 'stun_timeout', '3': 2, '4': 1, '5': 13, '10': 'stunTimeout'},
+    {'1': 'punch_timeout', '3': 3, '4': 1, '5': 13, '10': 'punchTimeout'},
+    {
+      '1': 'heartbeat_interval',
+      '3': 4,
+      '4': 1,
+      '5': 13,
+      '10': 'heartbeatInterval'
+    },
+    {'1': 'insecure', '3': 5, '4': 1, '5': 8, '10': 'insecure'},
+    {'1': 'ip_mode', '3': 6, '4': 1, '5': 9, '10': 'ipMode'},
+    {
+      '1': 'port_mapping',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.vx.proxy.hysteria.RealmPortMappingConfig',
+      '10': 'portMapping'
+    },
+  ],
+};
+
+/// Descriptor for `RealmConfig`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List realmConfigDescriptor = $convert.base64Decode(
+    'CgtSZWFsbUNvbmZpZxIdCgpyZWFsbV9hZGRyGAogASgJUglyZWFsbUFkZHISHQoKbG9jYWxfcG'
+    '9ydBgLIAEoDVIJbG9jYWxQb3J0EiEKDHN0dW5fc2VydmVycxgBIAMoCVILc3R1blNlcnZlcnMS'
+    'IQoMc3R1bl90aW1lb3V0GAIgASgNUgtzdHVuVGltZW91dBIjCg1wdW5jaF90aW1lb3V0GAMgAS'
+    'gNUgxwdW5jaFRpbWVvdXQSLQoSaGVhcnRiZWF0X2ludGVydmFsGAQgASgNUhFoZWFydGJlYXRJ'
+    'bnRlcnZhbBIaCghpbnNlY3VyZRgFIAEoCFIIaW5zZWN1cmUSFwoHaXBfbW9kZRgGIAEoCVIGaX'
+    'BNb2RlEkwKDHBvcnRfbWFwcGluZxgHIAEoCzIpLnZ4LnByb3h5Lmh5c3RlcmlhLlJlYWxtUG9y'
+    'dE1hcHBpbmdDb25maWdSC3BvcnRNYXBwaW5n');
 
 @$core.Deprecated('Use obfsConfigDescriptor instead')
 const ObfsConfig$json = {

@@ -2919,6 +2919,265 @@ class SetProxyShareResponse extends $pb.GeneratedMessage {
   static SetProxyShareResponse? _defaultInstance;
 }
 
+class GetRealmStatusStreamRequest extends $pb.GeneratedMessage {
+  factory GetRealmStatusStreamRequest({
+    $core.int? interval,
+  }) {
+    final result = create();
+    if (interval != null) result.interval = interval;
+    return result;
+  }
+
+  GetRealmStatusStreamRequest._();
+
+  factory GetRealmStatusStreamRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetRealmStatusStreamRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetRealmStatusStreamRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
+      createEmptyInstance: create)
+    ..aI(1, _omitFieldNames ? '' : 'interval', fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetRealmStatusStreamRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetRealmStatusStreamRequest copyWith(
+          void Function(GetRealmStatusStreamRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as GetRealmStatusStreamRequest))
+          as GetRealmStatusStreamRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetRealmStatusStreamRequest create() =>
+      GetRealmStatusStreamRequest._();
+  @$core.override
+  GetRealmStatusStreamRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetRealmStatusStreamRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetRealmStatusStreamRequest>(create);
+  static GetRealmStatusStreamRequest? _defaultInstance;
+
+  /// polling interval in seconds; 0 or omitted defaults to 3s
+  @$pb.TagNumber(1)
+  $core.int get interval => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set interval($core.int value) => $_setUnsignedInt32(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasInterval() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearInterval() => $_clearField(1);
+}
+
+class RealmServerStatus extends $pb.GeneratedMessage {
+  factory RealmServerStatus({
+    $core.bool? active,
+    $core.String? realmId,
+    $core.Iterable<$core.String>? publicAddresses,
+    $core.int? peers,
+  }) {
+    final result = create();
+    if (active != null) result.active = active;
+    if (realmId != null) result.realmId = realmId;
+    if (publicAddresses != null) result.publicAddresses.addAll(publicAddresses);
+    if (peers != null) result.peers = peers;
+    return result;
+  }
+
+  RealmServerStatus._();
+
+  factory RealmServerStatus.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RealmServerStatus.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RealmServerStatus',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'active')
+    ..aOS(2, _omitFieldNames ? '' : 'realmId')
+    ..pPS(3, _omitFieldNames ? '' : 'publicAddresses')
+    ..aI(4, _omitFieldNames ? '' : 'peers')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmServerStatus clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmServerStatus copyWith(void Function(RealmServerStatus) updates) =>
+      super.copyWith((message) => updates(message as RealmServerStatus))
+          as RealmServerStatus;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RealmServerStatus create() => RealmServerStatus._();
+  @$core.override
+  RealmServerStatus createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RealmServerStatus getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RealmServerStatus>(create);
+  static RealmServerStatus? _defaultInstance;
+
+  /// true when a realm session is established with the rendezvous server
+  @$pb.TagNumber(1)
+  $core.bool get active => $_getBF(0);
+  @$pb.TagNumber(1)
+  set active($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasActive() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearActive() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get realmId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set realmId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasRealmId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRealmId() => $_clearField(2);
+
+  /// STUN-discovered public UDP addresses (host:port) registered with the rendezvous server
+  @$pb.TagNumber(3)
+  $pb.PbList<$core.String> get publicAddresses => $_getList(2);
+
+  /// number of Hysteria clients currently connected through the realm inbound
+  @$pb.TagNumber(4)
+  $core.int get peers => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set peers($core.int value) => $_setSignedInt32(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasPeers() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPeers() => $_clearField(4);
+}
+
+class RealmInboundToUriRequest extends $pb.GeneratedMessage {
+  factory RealmInboundToUriRequest({
+    $2.ProxyInboundConfig? inboundConfig,
+  }) {
+    final result = create();
+    if (inboundConfig != null) result.inboundConfig = inboundConfig;
+    return result;
+  }
+
+  RealmInboundToUriRequest._();
+
+  factory RealmInboundToUriRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RealmInboundToUriRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RealmInboundToUriRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
+      createEmptyInstance: create)
+    ..aOM<$2.ProxyInboundConfig>(1, _omitFieldNames ? '' : 'inboundConfig',
+        subBuilder: $2.ProxyInboundConfig.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmInboundToUriRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmInboundToUriRequest copyWith(
+          void Function(RealmInboundToUriRequest) updates) =>
+      super.copyWith((message) => updates(message as RealmInboundToUriRequest))
+          as RealmInboundToUriRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RealmInboundToUriRequest create() => RealmInboundToUriRequest._();
+  @$core.override
+  RealmInboundToUriRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RealmInboundToUriRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RealmInboundToUriRequest>(create);
+  static RealmInboundToUriRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $2.ProxyInboundConfig get inboundConfig => $_getN(0);
+  @$pb.TagNumber(1)
+  set inboundConfig($2.ProxyInboundConfig value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasInboundConfig() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearInboundConfig() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $2.ProxyInboundConfig ensureInboundConfig() => $_ensure(0);
+}
+
+class RealmInboundToUriResponse extends $pb.GeneratedMessage {
+  factory RealmInboundToUriResponse({
+    $core.String? uri,
+  }) {
+    final result = create();
+    if (uri != null) result.uri = uri;
+    return result;
+  }
+
+  RealmInboundToUriResponse._();
+
+  factory RealmInboundToUriResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RealmInboundToUriResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RealmInboundToUriResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'uri')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmInboundToUriResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmInboundToUriResponse copyWith(
+          void Function(RealmInboundToUriResponse) updates) =>
+      super.copyWith((message) => updates(message as RealmInboundToUriResponse))
+          as RealmInboundToUriResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RealmInboundToUriResponse create() => RealmInboundToUriResponse._();
+  @$core.override
+  RealmInboundToUriResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RealmInboundToUriResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RealmInboundToUriResponse>(create);
+  static RealmInboundToUriResponse? _defaultInstance;
+
+  /// hysteria2+realm:// share URI
+  @$pb.TagNumber(1)
+  $core.String get uri => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set uri($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUri() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUri() => $_clearField(1);
+}
+
 const $core.bool _omitFieldNames =
     $core.bool.fromEnvironment('protobuf.omit_field_names');
 const $core.bool _omitMessageNames =

@@ -233,6 +233,24 @@ class GrpcServiceClient extends $grpc.Client {
     return $createUnaryCall(_$rttTest, request, options: options);
   }
 
+  /// realm server status (only meaningful when a realm server inbound is active)
+  $grpc.ResponseStream<$0.RealmServerStatus> getRealmStatusStream(
+    $0.GetRealmStatusStreamRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createStreamingCall(
+        _$getRealmStatusStream, $async.Stream.fromIterable([request]),
+        options: options);
+  }
+
+  /// Convert a realm server inbound config to a hysteria2+realm:// share URI.
+  $grpc.ResponseFuture<$0.RealmInboundToUriResponse> realmInboundToUri(
+    $0.RealmInboundToUriRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$realmInboundToUri, request, options: options);
+  }
+
   // method descriptors
 
   static final _$communicate =
@@ -362,6 +380,16 @@ class GrpcServiceClient extends $grpc.Client {
           '/vx.grpcservice.GrpcService/RttTest',
           ($0.RttTestRequest value) => value.writeToBuffer(),
           $0.RttTestResponse.fromBuffer);
+  static final _$getRealmStatusStream =
+      $grpc.ClientMethod<$0.GetRealmStatusStreamRequest, $0.RealmServerStatus>(
+          '/vx.grpcservice.GrpcService/GetRealmStatusStream',
+          ($0.GetRealmStatusStreamRequest value) => value.writeToBuffer(),
+          $0.RealmServerStatus.fromBuffer);
+  static final _$realmInboundToUri = $grpc.ClientMethod<
+          $0.RealmInboundToUriRequest, $0.RealmInboundToUriResponse>(
+      '/vx.grpcservice.GrpcService/RealmInboundToUri',
+      ($0.RealmInboundToUriRequest value) => value.writeToBuffer(),
+      $0.RealmInboundToUriResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('vx.grpcservice.GrpcService')
@@ -580,6 +608,24 @@ abstract class GrpcServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.RttTestRequest.fromBuffer(value),
         ($0.RttTestResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetRealmStatusStreamRequest,
+            $0.RealmServerStatus>(
+        'GetRealmStatusStream',
+        getRealmStatusStream_Pre,
+        false,
+        true,
+        ($core.List<$core.int> value) =>
+            $0.GetRealmStatusStreamRequest.fromBuffer(value),
+        ($0.RealmServerStatus value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RealmInboundToUriRequest,
+            $0.RealmInboundToUriResponse>(
+        'RealmInboundToUri',
+        realmInboundToUri_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.RealmInboundToUriRequest.fromBuffer(value),
+        ($0.RealmInboundToUriResponse value) => value.writeToBuffer()));
   }
 
   $async.Stream<$0.CommunicateMessage> communicate_Pre($grpc.ServiceCall $call,
@@ -794,4 +840,22 @@ abstract class GrpcServiceBase extends $grpc.Service {
 
   $async.Future<$0.RttTestResponse> rttTest(
       $grpc.ServiceCall call, $0.RttTestRequest request);
+
+  $async.Stream<$0.RealmServerStatus> getRealmStatusStream_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.GetRealmStatusStreamRequest> $request) async* {
+    yield* getRealmStatusStream($call, await $request);
+  }
+
+  $async.Stream<$0.RealmServerStatus> getRealmStatusStream(
+      $grpc.ServiceCall call, $0.GetRealmStatusStreamRequest request);
+
+  $async.Future<$0.RealmInboundToUriResponse> realmInboundToUri_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.RealmInboundToUriRequest> $request) async {
+    return realmInboundToUri($call, await $request);
+  }
+
+  $async.Future<$0.RealmInboundToUriResponse> realmInboundToUri(
+      $grpc.ServiceCall call, $0.RealmInboundToUriRequest request);
 }

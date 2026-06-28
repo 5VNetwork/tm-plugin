@@ -326,6 +326,7 @@ class Hysteria2ClientConfig extends $pb.GeneratedMessage {
     $core.bool? fastOpen,
     BandwidthConfig? bandwidth,
     ObfsConfig? obfs,
+    RealmConfig? realm,
   }) {
     final result = create();
     if (auth != null) result.auth = auth;
@@ -334,6 +335,7 @@ class Hysteria2ClientConfig extends $pb.GeneratedMessage {
     if (fastOpen != null) result.fastOpen = fastOpen;
     if (bandwidth != null) result.bandwidth = bandwidth;
     if (obfs != null) result.obfs = obfs;
+    if (realm != null) result.realm = realm;
     return result;
   }
 
@@ -361,6 +363,8 @@ class Hysteria2ClientConfig extends $pb.GeneratedMessage {
         subBuilder: BandwidthConfig.create)
     ..aOM<ObfsConfig>(15, _omitFieldNames ? '' : 'obfs',
         subBuilder: ObfsConfig.create)
+    ..aOM<RealmConfig>(16, _omitFieldNames ? '' : 'realm',
+        subBuilder: RealmConfig.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -444,6 +448,17 @@ class Hysteria2ClientConfig extends $pb.GeneratedMessage {
   void clearObfs() => $_clearField(15);
   @$pb.TagNumber(15)
   ObfsConfig ensureObfs() => $_ensure(5);
+
+  @$pb.TagNumber(16)
+  RealmConfig get realm => $_getN(6);
+  @$pb.TagNumber(16)
+  set realm(RealmConfig value) => $_setField(16, value);
+  @$pb.TagNumber(16)
+  $core.bool hasRealm() => $_has(6);
+  @$pb.TagNumber(16)
+  void clearRealm() => $_clearField(16);
+  @$pb.TagNumber(16)
+  RealmConfig ensureRealm() => $_ensure(6);
 }
 
 class Hysteria2ServerConfig extends $pb.GeneratedMessage {
@@ -455,6 +470,7 @@ class Hysteria2ServerConfig extends $pb.GeneratedMessage {
     $core.bool? ignoreClientBandwidth,
     $0.TlsConfig? tlsConfig,
     $core.Iterable<$core.String>? addresses,
+    RealmConfig? realm,
   }) {
     final result = create();
     if (users != null) result.users.addAll(users);
@@ -465,6 +481,7 @@ class Hysteria2ServerConfig extends $pb.GeneratedMessage {
       result.ignoreClientBandwidth = ignoreClientBandwidth;
     if (tlsConfig != null) result.tlsConfig = tlsConfig;
     if (addresses != null) result.addresses.addAll(addresses);
+    if (realm != null) result.realm = realm;
     return result;
   }
 
@@ -494,6 +511,8 @@ class Hysteria2ServerConfig extends $pb.GeneratedMessage {
     ..aOM<$0.TlsConfig>(8, _omitFieldNames ? '' : 'tlsConfig',
         subBuilder: $0.TlsConfig.create)
     ..pPS(9, _omitFieldNames ? '' : 'addresses')
+    ..aOM<RealmConfig>(11, _omitFieldNames ? '' : 'realm',
+        subBuilder: RealmConfig.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -574,6 +593,256 @@ class Hysteria2ServerConfig extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(9)
   $pb.PbList<$core.String> get addresses => $_getList(6);
+
+  @$pb.TagNumber(11)
+  RealmConfig get realm => $_getN(7);
+  @$pb.TagNumber(11)
+  set realm(RealmConfig value) => $_setField(11, value);
+  @$pb.TagNumber(11)
+  $core.bool hasRealm() => $_has(7);
+  @$pb.TagNumber(11)
+  void clearRealm() => $_clearField(11);
+  @$pb.TagNumber(11)
+  RealmConfig ensureRealm() => $_ensure(7);
+}
+
+class RealmPortMappingConfig extends $pb.GeneratedMessage {
+  factory RealmPortMappingConfig({
+    $core.bool? enabled,
+    $core.int? timeout,
+    $core.int? lifetime,
+  }) {
+    final result = create();
+    if (enabled != null) result.enabled = enabled;
+    if (timeout != null) result.timeout = timeout;
+    if (lifetime != null) result.lifetime = lifetime;
+    return result;
+  }
+
+  RealmPortMappingConfig._();
+
+  factory RealmPortMappingConfig.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RealmPortMappingConfig.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RealmPortMappingConfig',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'vx.proxy.hysteria'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'enabled')
+    ..aI(2, _omitFieldNames ? '' : 'timeout', fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'lifetime', fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmPortMappingConfig clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmPortMappingConfig copyWith(
+          void Function(RealmPortMappingConfig) updates) =>
+      super.copyWith((message) => updates(message as RealmPortMappingConfig))
+          as RealmPortMappingConfig;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RealmPortMappingConfig create() => RealmPortMappingConfig._();
+  @$core.override
+  RealmPortMappingConfig createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RealmPortMappingConfig getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RealmPortMappingConfig>(create);
+  static RealmPortMappingConfig? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get enabled => $_getBF(0);
+  @$pb.TagNumber(1)
+  set enabled($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasEnabled() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEnabled() => $_clearField(1);
+
+  /// seconds; 0 uses default
+  @$pb.TagNumber(2)
+  $core.int get timeout => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set timeout($core.int value) => $_setUnsignedInt32(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasTimeout() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTimeout() => $_clearField(2);
+
+  /// seconds; 0 uses default
+  @$pb.TagNumber(3)
+  $core.int get lifetime => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set lifetime($core.int value) => $_setUnsignedInt32(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasLifetime() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearLifetime() => $_clearField(3);
+}
+
+class RealmConfig extends $pb.GeneratedMessage {
+  factory RealmConfig({
+    $core.Iterable<$core.String>? stunServers,
+    $core.int? stunTimeout,
+    $core.int? punchTimeout,
+    $core.int? heartbeatInterval,
+    $core.bool? insecure,
+    $core.String? ipMode,
+    RealmPortMappingConfig? portMapping,
+    $core.String? realmAddr,
+    $core.int? localPort,
+  }) {
+    final result = create();
+    if (stunServers != null) result.stunServers.addAll(stunServers);
+    if (stunTimeout != null) result.stunTimeout = stunTimeout;
+    if (punchTimeout != null) result.punchTimeout = punchTimeout;
+    if (heartbeatInterval != null) result.heartbeatInterval = heartbeatInterval;
+    if (insecure != null) result.insecure = insecure;
+    if (ipMode != null) result.ipMode = ipMode;
+    if (portMapping != null) result.portMapping = portMapping;
+    if (realmAddr != null) result.realmAddr = realmAddr;
+    if (localPort != null) result.localPort = localPort;
+    return result;
+  }
+
+  RealmConfig._();
+
+  factory RealmConfig.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RealmConfig.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RealmConfig',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'vx.proxy.hysteria'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'stunServers')
+    ..aI(2, _omitFieldNames ? '' : 'stunTimeout',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'punchTimeout',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'heartbeatInterval',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aOB(5, _omitFieldNames ? '' : 'insecure')
+    ..aOS(6, _omitFieldNames ? '' : 'ipMode')
+    ..aOM<RealmPortMappingConfig>(7, _omitFieldNames ? '' : 'portMapping',
+        subBuilder: RealmPortMappingConfig.create)
+    ..aOS(10, _omitFieldNames ? '' : 'realmAddr')
+    ..aI(11, _omitFieldNames ? '' : 'localPort', fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmConfig clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RealmConfig copyWith(void Function(RealmConfig) updates) =>
+      super.copyWith((message) => updates(message as RealmConfig))
+          as RealmConfig;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RealmConfig create() => RealmConfig._();
+  @$core.override
+  RealmConfig createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RealmConfig getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RealmConfig>(create);
+  static RealmConfig? _defaultInstance;
+
+  /// fallback STUN servers when not specified in the realm URL query
+  @$pb.TagNumber(1)
+  $pb.PbList<$core.String> get stunServers => $_getList(0);
+
+  /// seconds; 0 uses default (4s)
+  @$pb.TagNumber(2)
+  $core.int get stunTimeout => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set stunTimeout($core.int value) => $_setUnsignedInt32(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasStunTimeout() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearStunTimeout() => $_clearField(2);
+
+  /// seconds; 0 uses default (10s)
+  @$pb.TagNumber(3)
+  $core.int get punchTimeout => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set punchTimeout($core.int value) => $_setUnsignedInt32(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPunchTimeout() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPunchTimeout() => $_clearField(3);
+
+  /// seconds; 0 uses half of rendezvous session TTL
+  @$pb.TagNumber(4)
+  $core.int get heartbeatInterval => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set heartbeatInterval($core.int value) => $_setUnsignedInt32(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasHeartbeatInterval() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearHeartbeatInterval() => $_clearField(4);
+
+  /// allow realm+http:// and skip TLS verification for rendezvous
+  @$pb.TagNumber(5)
+  $core.bool get insecure => $_getBF(4);
+  @$pb.TagNumber(5)
+  set insecure($core.bool value) => $_setBool(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasInsecure() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearInsecure() => $_clearField(5);
+
+  /// v4, v6, or dual (empty = dual)
+  @$pb.TagNumber(6)
+  $core.String get ipMode => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set ipMode($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasIpMode() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearIpMode() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  RealmPortMappingConfig get portMapping => $_getN(6);
+  @$pb.TagNumber(7)
+  set portMapping(RealmPortMappingConfig value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasPortMapping() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearPortMapping() => $_clearField(7);
+  @$pb.TagNumber(7)
+  RealmPortMappingConfig ensurePortMapping() => $_ensure(6);
+
+  @$pb.TagNumber(10)
+  $core.String get realmAddr => $_getSZ(7);
+  @$pb.TagNumber(10)
+  set realmAddr($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(10)
+  $core.bool hasRealmAddr() => $_has(7);
+  @$pb.TagNumber(10)
+  void clearRealmAddr() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.int get localPort => $_getIZ(8);
+  @$pb.TagNumber(11)
+  set localPort($core.int value) => $_setUnsignedInt32(8, value);
+  @$pb.TagNumber(11)
+  $core.bool hasLocalPort() => $_has(8);
+  @$pb.TagNumber(11)
+  void clearLocalPort() => $_clearField(11);
 }
 
 enum ObfsConfig_Obfs { salamander, notSet }

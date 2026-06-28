@@ -809,3 +809,68 @@ const SetProxyShareResponse$json = {
 /// Descriptor for `SetProxyShareResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List setProxyShareResponseDescriptor =
     $convert.base64Decode('ChVTZXRQcm94eVNoYXJlUmVzcG9uc2U=');
+
+@$core.Deprecated('Use getRealmStatusStreamRequestDescriptor instead')
+const GetRealmStatusStreamRequest$json = {
+  '1': 'GetRealmStatusStreamRequest',
+  '2': [
+    {'1': 'interval', '3': 1, '4': 1, '5': 13, '10': 'interval'},
+  ],
+};
+
+/// Descriptor for `GetRealmStatusStreamRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getRealmStatusStreamRequestDescriptor =
+    $convert.base64Decode(
+        'ChtHZXRSZWFsbVN0YXR1c1N0cmVhbVJlcXVlc3QSGgoIaW50ZXJ2YWwYASABKA1SCGludGVydm'
+        'Fs');
+
+@$core.Deprecated('Use realmServerStatusDescriptor instead')
+const RealmServerStatus$json = {
+  '1': 'RealmServerStatus',
+  '2': [
+    {'1': 'active', '3': 1, '4': 1, '5': 8, '10': 'active'},
+    {'1': 'realm_id', '3': 2, '4': 1, '5': 9, '10': 'realmId'},
+    {'1': 'public_addresses', '3': 3, '4': 3, '5': 9, '10': 'publicAddresses'},
+    {'1': 'peers', '3': 4, '4': 1, '5': 5, '10': 'peers'},
+  ],
+};
+
+/// Descriptor for `RealmServerStatus`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List realmServerStatusDescriptor = $convert.base64Decode(
+    'ChFSZWFsbVNlcnZlclN0YXR1cxIWCgZhY3RpdmUYASABKAhSBmFjdGl2ZRIZCghyZWFsbV9pZB'
+    'gCIAEoCVIHcmVhbG1JZBIpChBwdWJsaWNfYWRkcmVzc2VzGAMgAygJUg9wdWJsaWNBZGRyZXNz'
+    'ZXMSFAoFcGVlcnMYBCABKAVSBXBlZXJz');
+
+@$core.Deprecated('Use realmInboundToUriRequestDescriptor instead')
+const RealmInboundToUriRequest$json = {
+  '1': 'RealmInboundToUriRequest',
+  '2': [
+    {
+      '1': 'inbound_config',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.vx.inbound.ProxyInboundConfig',
+      '10': 'inboundConfig'
+    },
+  ],
+};
+
+/// Descriptor for `RealmInboundToUriRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List realmInboundToUriRequestDescriptor =
+    $convert.base64Decode(
+        'ChhSZWFsbUluYm91bmRUb1VyaVJlcXVlc3QSRQoOaW5ib3VuZF9jb25maWcYASABKAsyHi52eC'
+        '5pbmJvdW5kLlByb3h5SW5ib3VuZENvbmZpZ1INaW5ib3VuZENvbmZpZw==');
+
+@$core.Deprecated('Use realmInboundToUriResponseDescriptor instead')
+const RealmInboundToUriResponse$json = {
+  '1': 'RealmInboundToUriResponse',
+  '2': [
+    {'1': 'uri', '3': 1, '4': 1, '5': 9, '10': 'uri'},
+  ],
+};
+
+/// Descriptor for `RealmInboundToUriResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List realmInboundToUriResponseDescriptor =
+    $convert.base64Decode(
+        'ChlSZWFsbUluYm91bmRUb1VyaVJlc3BvbnNlEhAKA3VyaRgBIAEoCVIDdXJp');
