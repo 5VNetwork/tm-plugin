@@ -180,7 +180,7 @@ class TmAndroidPlugin: FlutterPlugin, ActivityAware, TmAndroidApi {
 //    }
 //  }
 
-  override fun start(config: ByteArray, tunConfig: TunConfig ,callback: (Result<Unit>) -> Unit) {
+  override fun start(config: ByteArray,callback: (Result<Unit>) -> Unit) {
     if (tmVpnService?.state != TmVpnService.State.STOPPED) {
       Log.d("TmAndroidPlugin","state: "+ tmVpnService?.state.toString())
       callback(Result.failure(FlutterError("state is not stopped, stop the previous service before start")))

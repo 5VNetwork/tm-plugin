@@ -136,8 +136,8 @@ class TmAndroid extends TmPlatform {
     bool? defaultNicSupport6,
     // windows only
     String? configPath,
-          // linux only
-      String? sudoPassword,
+    // linux only
+    String? sudoPassword,
   }) async {
     final prepared = await _api.prepare();
     if (!prepared) {
@@ -146,7 +146,6 @@ class TmAndroid extends TmPlatform {
 
     await _api.start(
       config.writeToBuffer(),
-      getTunConfig(config, blackListApps, redirectStdErr),
     );
   }
 

@@ -204,7 +204,7 @@ private open class MessagesPigeonCodec : StandardMessageCodec() {
 /** Generated interface from Pigeon that represents a handler of messages from Flutter. */
 interface TmAndroidApi {
   fun prepare(callback: (Result<Boolean>) -> Unit)
-  fun start(config: ByteArray, tunConfig: TunConfig, callback: (Result<Unit>) -> Unit)
+  fun start(config: ByteArray, callback: (Result<Unit>) -> Unit)
   fun stop()
   fun getStatus(): Long
   fun config(): ByteArray
@@ -244,8 +244,7 @@ interface TmAndroidApi {
           channel.setMessageHandler { message, reply ->
             val args = message as List<Any?>
             val configArg = args[0] as ByteArray
-            val tunConfigArg = args[1] as TunConfig
-            api.start(configArg, tunConfigArg) { result: Result<Unit> ->
+            api.start(configArg) { result: Result<Unit> ->
               val error = result.exceptionOrNull()
               if (error != null) {
                 reply.reply(MessagesPigeonUtils.wrapError(error))

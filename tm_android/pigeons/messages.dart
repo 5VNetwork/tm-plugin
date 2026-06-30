@@ -29,15 +29,12 @@ abstract class TmAndroidApi {
   @async
   bool prepare();
   @async
-  void start(Uint8List config, TunConfig tunConfig);
+  void start(Uint8List config);
   void stop();
   int getStatus();
   Uint8List config();
   bool isSystemManaged();
   void openVpnSettings();
-  // @async
-  // int startTun(TunConfig config);
-  // void closeTun();
 }
 
 class TunConfig {
