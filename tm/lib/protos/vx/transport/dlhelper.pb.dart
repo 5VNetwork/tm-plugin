@@ -41,6 +41,7 @@ class SocketConfig extends $pb.GeneratedMessage {
     $core.String? localAddr4,
     $core.String? localAddr6,
     $core.int? dialTimeout,
+    $fixnum.Int64? tcpBrutalSendRate,
   }) {
     final result = create();
     if (mark != null) result.mark = mark;
@@ -63,6 +64,7 @@ class SocketConfig extends $pb.GeneratedMessage {
     if (localAddr4 != null) result.localAddr4 = localAddr4;
     if (localAddr6 != null) result.localAddr6 = localAddr6;
     if (dialTimeout != null) result.dialTimeout = dialTimeout;
+    if (tcpBrutalSendRate != null) result.tcpBrutalSendRate = tcpBrutalSendRate;
     return result;
   }
 
@@ -102,6 +104,9 @@ class SocketConfig extends $pb.GeneratedMessage {
     ..aOS(17, _omitFieldNames ? '' : 'localAddr6')
     ..aI(18, _omitFieldNames ? '' : 'dialTimeout',
         fieldType: $pb.PbFieldType.OU3)
+    ..a<$fixnum.Int64>(
+        19, _omitFieldNames ? '' : 'tcpBrutalSendRate', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -286,6 +291,17 @@ class SocketConfig extends $pb.GeneratedMessage {
   $core.bool hasDialTimeout() => $_has(16);
   @$pb.TagNumber(18)
   void clearDialTimeout() => $_clearField(18);
+
+  /// TCP Brutal send rate in bytes per second. Linux only; requires the
+  /// tcp-brutal kernel module. Zero disables TCP Brutal.
+  @$pb.TagNumber(19)
+  $fixnum.Int64 get tcpBrutalSendRate => $_getI64(17);
+  @$pb.TagNumber(19)
+  set tcpBrutalSendRate($fixnum.Int64 value) => $_setInt64(17, value);
+  @$pb.TagNumber(19)
+  $core.bool hasTcpBrutalSendRate() => $_has(17);
+  @$pb.TagNumber(19)
+  void clearTcpBrutalSendRate() => $_clearField(19);
 }
 
 const $core.bool _omitFieldNames =

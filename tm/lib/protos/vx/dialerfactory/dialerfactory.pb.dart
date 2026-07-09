@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -21,11 +22,13 @@ class DialerFactoryConfig extends $pb.GeneratedMessage {
     $core.int? dialTimeout,
     $core.bool? shouldBindDevice,
     $core.bool? resolveDomain,
+    $fixnum.Int64? tcpBrutalSendRate,
   }) {
     final result = create();
     if (dialTimeout != null) result.dialTimeout = dialTimeout;
     if (shouldBindDevice != null) result.shouldBindDevice = shouldBindDevice;
     if (resolveDomain != null) result.resolveDomain = resolveDomain;
+    if (tcpBrutalSendRate != null) result.tcpBrutalSendRate = tcpBrutalSendRate;
     return result;
   }
 
@@ -47,6 +50,9 @@ class DialerFactoryConfig extends $pb.GeneratedMessage {
         fieldType: $pb.PbFieldType.OU3)
     ..aOB(2, _omitFieldNames ? '' : 'shouldBindDevice')
     ..aOB(3, _omitFieldNames ? '' : 'resolveDomain')
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'tcpBrutalSendRate', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -97,6 +103,17 @@ class DialerFactoryConfig extends $pb.GeneratedMessage {
   $core.bool hasResolveDomain() => $_has(2);
   @$pb.TagNumber(3)
   void clearResolveDomain() => $_clearField(3);
+
+  /// TCP Brutal send rate in bytes per second. Linux only; requires the
+  /// tcp-brutal kernel module. Zero disables TCP Brutal.
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get tcpBrutalSendRate => $_getI64(3);
+  @$pb.TagNumber(4)
+  set tcpBrutalSendRate($fixnum.Int64 value) => $_setInt64(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTcpBrutalSendRate() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTcpBrutalSendRate() => $_clearField(4);
 }
 
 const $core.bool _omitFieldNames =

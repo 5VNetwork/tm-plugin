@@ -74,6 +74,13 @@ const SocketConfig$json = {
     {'1': 'local_addr4', '3': 16, '4': 1, '5': 9, '10': 'localAddr4'},
     {'1': 'local_addr6', '3': 17, '4': 1, '5': 9, '10': 'localAddr6'},
     {'1': 'dial_timeout', '3': 18, '4': 1, '5': 13, '10': 'dialTimeout'},
+    {
+      '1': 'tcp_brutal_send_rate',
+      '3': 19,
+      '4': 1,
+      '5': 4,
+      '10': 'tcpBrutalSendRate'
+    },
   ],
   '4': [SocketConfig_TCPFastOpenState$json, SocketConfig_TProxyMode$json],
 };
@@ -113,6 +120,6 @@ final $typed_data.Uint8List socketConfigDescriptor = $convert.base64Decode(
     'emUSHgoLdHhfYnVmX3NpemUYDSABKANSCXR4QnVmU2l6ZRIkCg5mb3JjZV9idWZfc2l6ZRgOIA'
     'EoCFIMZm9yY2VCdWZTaXplEh8KC2xvY2FsX2FkZHI0GBAgASgJUgpsb2NhbEFkZHI0Eh8KC2xv'
     'Y2FsX2FkZHI2GBEgASgJUgpsb2NhbEFkZHI2EiEKDGRpYWxfdGltZW91dBgSIAEoDVILZGlhbF'
-    'RpbWVvdXQiNQoQVENQRmFzdE9wZW5TdGF0ZRIICgRBc0lzEAASCgoGRW5hYmxlEAESCwoHRGlz'
-    'YWJsZRACIi8KClRQcm94eU1vZGUSBwoDT2ZmEAASCgoGVFByb3h5EAESDAoIUmVkaXJlY3QQAg'
-    '==');
+    'RpbWVvdXQSLwoUdGNwX2JydXRhbF9zZW5kX3JhdGUYEyABKARSEXRjcEJydXRhbFNlbmRSYXRl'
+    'IjUKEFRDUEZhc3RPcGVuU3RhdGUSCAoEQXNJcxAAEgoKBkVuYWJsZRABEgsKB0Rpc2FibGUQAi'
+    'IvCgpUUHJveHlNb2RlEgcKA09mZhAAEgoKBlRQcm94eRABEgwKCFJlZGlyZWN0EAI=');

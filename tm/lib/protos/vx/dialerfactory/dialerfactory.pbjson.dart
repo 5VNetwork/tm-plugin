@@ -28,6 +28,13 @@ const DialerFactoryConfig$json = {
       '10': 'shouldBindDevice'
     },
     {'1': 'resolve_domain', '3': 3, '4': 1, '5': 8, '10': 'resolveDomain'},
+    {
+      '1': 'tcp_brutal_send_rate',
+      '3': 4,
+      '4': 1,
+      '5': 4,
+      '10': 'tcpBrutalSendRate'
+    },
   ],
 };
 
@@ -35,4 +42,5 @@ const DialerFactoryConfig$json = {
 final $typed_data.Uint8List dialerFactoryConfigDescriptor = $convert.base64Decode(
     'ChNEaWFsZXJGYWN0b3J5Q29uZmlnEiEKDGRpYWxfdGltZW91dBgBIAEoDVILZGlhbFRpbWVvdX'
     'QSLAoSc2hvdWxkX2JpbmRfZGV2aWNlGAIgASgIUhBzaG91bGRCaW5kRGV2aWNlEiUKDnJlc29s'
-    'dmVfZG9tYWluGAMgASgIUg1yZXNvbHZlRG9tYWlu');
+    'dmVfZG9tYWluGAMgASgIUg1yZXNvbHZlRG9tYWluEi8KFHRjcF9icnV0YWxfc2VuZF9yYXRlGA'
+    'QgASgEUhF0Y3BCcnV0YWxTZW5kUmF0ZQ==');
