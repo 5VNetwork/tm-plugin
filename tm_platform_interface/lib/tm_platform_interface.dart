@@ -51,8 +51,13 @@ abstract class TmPlatform extends PlatformInterface {
     String? configPath,
     // darwin only
     bool? defaultNicSupport6,
-          // linux only
-      String? sudoPassword,
+    // linux only
+    String? sudoPassword,
+    // iOS only: VPN On Demand so the packet tunnel starts after reboot
+    bool? connectOnDemand,
   });
   Future<void> stop();
+
+  /// iOS only: enable/disable VPN On Demand without restarting the tunnel.
+  Future<void> setConnectOnDemand(bool enable) async {}
 }

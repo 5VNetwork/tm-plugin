@@ -79,6 +79,8 @@ class TmLinux extends TmPlatform {
     bool redirectStdErr = true,
     // linux only
     String? sudoPassword,
+    // iOS only
+    bool? connectOnDemand,
   }) async {
     if (_status != TmStatus.disconnected) {
       throw Exception('Tm is not stopped');

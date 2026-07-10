@@ -89,18 +89,32 @@ class TmIos extends TmPlatform {
     String? configPath,
     // darwin only
     bool? defaultNicSupport6,
-          // linux only
-      String? sudoPassword,
+    // linux only
+    String? sudoPassword,
+    // iOS only
+    bool? connectOnDemand,
   }) async {
     _init();
-    return _tunnelApi.start(config.writeToBuffer(),
-        getTunnelConfig(config.tun, defaultNicSupport6));
+    return _tunnelApi.start(
+      config.writeToBuffer(),
+      getTunnelConfig(
+        config.tun,
+        defaultNicSupport6,
+        connectOnDemand: connectOnDemand,
+      ),
+    );
   }
 
   @override
   Future<void> stop() async {
     _init();
-    _tunnelApi.stop();
+    await _tunnelApi.stop();
+  }
+
+  @override
+  Future<void> setConnectOnDemand(bool enable) async {
+    _init();
+    await _tunnelApi.setConnectOnDemand(enable);
   }
 }
 
@@ -124,12 +138,17 @@ TmStatus _statusFromInt(int status) {
 }
 
 /// Converts a [TunConfig] to a [TunnelConfig]
-TunnelConfig getTunnelConfig(TunConfig tunConfig, bool? defaultNicSupport6) {
+TunnelConfig getTunnelConfig(
+  TunConfig tunConfig,
+  bool? defaultNicSupport6, {
+  bool? connectOnDemand,
+}) {
   final result = TunnelConfig(
     mtu: tunConfig.device.mtu == 0 ? 1500 : tunConfig.device.mtu,
     useFd: true,
     tun46Setting: tunConfig.tun46Setting.value,
     defaultNicSupport6: defaultNicSupport6,
+    connectOnDemand: connectOnDemand,
   );
 
   if (tunConfig.device.dns4.isNotEmpty || tunConfig.device.dns6.isNotEmpty) {

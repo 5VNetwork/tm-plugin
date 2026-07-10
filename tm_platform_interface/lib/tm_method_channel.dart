@@ -48,8 +48,10 @@ class MethodChannelTm extends TmPlatform {
     bool? defaultNicSupport6,
     // windows only
     String? configPath,
-          // linux only
-      String? sudoPassword,
+    // linux only
+    String? sudoPassword,
+    // iOS only
+    bool? connectOnDemand,
   }) async {
     throw UnimplementedError('start() has not been implemented.');
   }
@@ -58,5 +60,4 @@ class MethodChannelTm extends TmPlatform {
   Future<void> stop() {
     throw UnimplementedError('stop() has not been implemented.');
   }
-
 }

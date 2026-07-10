@@ -138,6 +138,8 @@ class TmAndroid extends TmPlatform {
     String? configPath,
     // linux only
     String? sudoPassword,
+    // iOS only
+    bool? connectOnDemand,
   }) async {
     final prepared = await _api.prepare();
     if (!prepared) {

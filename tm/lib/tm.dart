@@ -50,18 +50,27 @@ class Tm {
     bool? defaultNicSupport6,
     // linux only
     String? sudoPassword,
+    // iOS only: VPN On Demand so the packet tunnel starts after reboot
+    bool? connectOnDemand,
   }) async {
     await TmPlatform.instance.start(
-        config: config,
-        onSelfShutdown: onSelfShutdown,
-        blackListApps: blackListApps,
-        configPath: configPath,
-        sudoPassword: sudoPassword,
-        );
+      config: config,
+      onSelfShutdown: onSelfShutdown,
+      blackListApps: blackListApps,
+      configPath: configPath,
+      sudoPassword: sudoPassword,
+      defaultNicSupport6: defaultNicSupport6,
+      connectOnDemand: connectOnDemand,
+    );
   }
 
   Future<void> stop() async {
     await TmPlatform.instance.stop();
+  }
+
+  /// iOS only: enable/disable VPN On Demand without restarting the tunnel.
+  Future<void> setConnectOnDemand(bool enable) async {
+    await TmPlatform.instance.setConnectOnDemand(enable);
   }
 }
 

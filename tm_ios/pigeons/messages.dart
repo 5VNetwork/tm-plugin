@@ -30,7 +30,11 @@ abstract class XIosApi {
   int getStatus();
   @async
   void start(Uint8List config, TunnelConfig tunnelConfig);
+  @async
   void stop();
+  /// Enable or disable VPN On Demand without restarting the tunnel.
+  @async
+  void setConnectOnDemand(bool enable);
   Uint8List config();
 }
 
@@ -39,7 +43,8 @@ class TunnelConfig {
       {this.useFd = false,
       this.log = false,
       this.defaultNicSupport6,
-      this.tun46Setting});
+      this.tun46Setting,
+      this.connectOnDemand});
   int? mtu;
   List<String>? dnsServers4;
   List<String>? dnsServers6;
@@ -55,6 +60,9 @@ class TunnelConfig {
   bool log;
   int? tun46Setting;
   bool? defaultNicSupport6;
+  /// When true, iOS starts the packet tunnel automatically after reboot
+  /// (VPN On Demand with NEOnDemandRuleConnect).
+  bool? connectOnDemand;
 }
 
 class Ipv4Route {

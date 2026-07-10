@@ -95,6 +95,8 @@ class TmMacos extends TmPlatform {
     bool? defaultNicSupport6,
     // linux only
     String? sudoPassword,
+    // iOS only
+    bool? connectOnDemand,
   }) async {
     _init();
     // since manager.protocolConfiguration has a maximum size limit of 500 KB, and

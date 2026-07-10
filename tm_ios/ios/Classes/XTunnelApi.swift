@@ -121,6 +121,8 @@ class XTunnelApi: XIosApi {
                     manager.localizedDescription = "XProxy"
                 }
                 manager.isEnabled = true
+                self.applyConnectOnDemand(
+                    enable: tunnelConfig.connectOnDemand ?? false)
                 try await manager.saveToPreferences()
                 try await manager.loadFromPreferences()
                 let connection =
@@ -145,12 +147,79 @@ class XTunnelApi: XIosApi {
         }
     }
 
-    func stop() throws {
+    func stop(completion: @escaping (Result<Void, Error>) -> Void) {
         guard prepared else {
-            throw NotPreparedError
+            completion(.failure(NotPreparedError))
+            return
         }
-        (manager.connection as! NETunnelProviderSession).stopTunnel()
+        Task {
+            do {
+                try await self.manager.loadFromPreferences()
+                // Disable On Demand so an explicit disconnect does not
+                // immediately reconnect after reboot / network change.
+                self.applyConnectOnDemand(enable: false)
+                try await self.manager.saveToPreferences()
+                (self.manager.connection as! NETunnelProviderSession)
+                    .stopTunnel()
+                completion(.success(()))
+            } catch let err as NSError {
+                completion(
+                    .failure(
+                        PigeonError(
+                            code: err.domain, message: err.localizedDescription,
+                            details: err.userInfo)))
+            } catch {
+                completion(
+                    .failure(
+                        PigeonError(
+                            code: error.localizedDescription, message: nil,
+                            details: nil)))
+            }
+        }
+    }
 
+    func setConnectOnDemand(
+        enable: Bool, completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        guard prepared else {
+            completion(.failure(NotPreparedError))
+            return
+        }
+        Task {
+            do {
+                try await self.manager.loadFromPreferences()
+                self.applyConnectOnDemand(enable: enable)
+                try await self.manager.saveToPreferences()
+                debugPrint("setConnectOnDemand: \(enable)")
+                completion(.success(()))
+            } catch let err as NSError {
+                completion(
+                    .failure(
+                        PigeonError(
+                            code: err.domain, message: err.localizedDescription,
+                            details: err.userInfo)))
+            } catch {
+                completion(
+                    .failure(
+                        PigeonError(
+                            code: error.localizedDescription, message: nil,
+                            details: nil)))
+            }
+        }
+    }
+
+    /// Configures VPN On Demand so iOS can start the packet tunnel after reboot
+    /// without launching the containing app.
+    private func applyConnectOnDemand(enable: Bool) {
+        if enable {
+            let rule = NEOnDemandRuleConnect()
+            rule.interfaceTypeMatch = .any
+            manager.onDemandRules = [rule]
+            manager.isOnDemandEnabled = true
+        } else {
+            manager.isOnDemandEnabled = false
+            manager.onDemandRules = []
+        }
     }
 
     func config() throws -> FlutterStandardTypedData {
