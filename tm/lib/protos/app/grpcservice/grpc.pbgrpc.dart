@@ -104,6 +104,13 @@ class GrpcServiceClient extends $grpc.Client {
     return $createUnaryCall(_$changeOutbound, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.ChangeHandlerStoreResponse> changeHandlerStore(
+    $0.ChangeHandlerStoreRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$changeHandlerStore, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.CurrentOutboundResponse> currentOutbound(
     $0.CurrentOutboundRequest request, {
     $grpc.CallOptions? options,
@@ -243,14 +250,6 @@ class GrpcServiceClient extends $grpc.Client {
         options: options);
   }
 
-  /// Convert a realm server inbound config to a hysteria2+realm:// share URI.
-  $grpc.ResponseFuture<$0.RealmInboundToUriResponse> realmInboundToUri(
-    $0.RealmInboundToUriRequest request, {
-    $grpc.CallOptions? options,
-  }) {
-    return $createUnaryCall(_$realmInboundToUri, request, options: options);
-  }
-
   // method descriptors
 
   static final _$communicate =
@@ -294,6 +293,11 @@ class GrpcServiceClient extends $grpc.Client {
           '/vx.grpcservice.GrpcService/ChangeOutbound',
           ($0.ChangeOutboundRequest value) => value.writeToBuffer(),
           $0.ChangeOutboundResponse.fromBuffer);
+  static final _$changeHandlerStore = $grpc.ClientMethod<
+          $0.ChangeHandlerStoreRequest, $0.ChangeHandlerStoreResponse>(
+      '/vx.grpcservice.GrpcService/ChangeHandlerStore',
+      ($0.ChangeHandlerStoreRequest value) => value.writeToBuffer(),
+      $0.ChangeHandlerStoreResponse.fromBuffer);
   static final _$currentOutbound =
       $grpc.ClientMethod<$0.CurrentOutboundRequest, $0.CurrentOutboundResponse>(
           '/vx.grpcservice.GrpcService/CurrentOutbound',
@@ -385,11 +389,6 @@ class GrpcServiceClient extends $grpc.Client {
           '/vx.grpcservice.GrpcService/GetRealmStatusStream',
           ($0.GetRealmStatusStreamRequest value) => value.writeToBuffer(),
           $0.RealmServerStatus.fromBuffer);
-  static final _$realmInboundToUri = $grpc.ClientMethod<
-          $0.RealmInboundToUriRequest, $0.RealmInboundToUriResponse>(
-      '/vx.grpcservice.GrpcService/RealmInboundToUri',
-      ($0.RealmInboundToUriRequest value) => value.writeToBuffer(),
-      $0.RealmInboundToUriResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('vx.grpcservice.GrpcService')
@@ -464,6 +463,15 @@ abstract class GrpcServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.ChangeOutboundRequest.fromBuffer(value),
         ($0.ChangeOutboundResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ChangeHandlerStoreRequest,
+            $0.ChangeHandlerStoreResponse>(
+        'ChangeHandlerStore',
+        changeHandlerStore_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.ChangeHandlerStoreRequest.fromBuffer(value),
+        ($0.ChangeHandlerStoreResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CurrentOutboundRequest,
             $0.CurrentOutboundResponse>(
         'CurrentOutbound',
@@ -617,15 +625,6 @@ abstract class GrpcServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.GetRealmStatusStreamRequest.fromBuffer(value),
         ($0.RealmServerStatus value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.RealmInboundToUriRequest,
-            $0.RealmInboundToUriResponse>(
-        'RealmInboundToUri',
-        realmInboundToUri_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) =>
-            $0.RealmInboundToUriRequest.fromBuffer(value),
-        ($0.RealmInboundToUriResponse value) => value.writeToBuffer()));
   }
 
   $async.Stream<$0.CommunicateMessage> communicate_Pre($grpc.ServiceCall $call,
@@ -695,6 +694,15 @@ abstract class GrpcServiceBase extends $grpc.Service {
 
   $async.Future<$0.ChangeOutboundResponse> changeOutbound(
       $grpc.ServiceCall call, $0.ChangeOutboundRequest request);
+
+  $async.Future<$0.ChangeHandlerStoreResponse> changeHandlerStore_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.ChangeHandlerStoreRequest> $request) async {
+    return changeHandlerStore($call, await $request);
+  }
+
+  $async.Future<$0.ChangeHandlerStoreResponse> changeHandlerStore(
+      $grpc.ServiceCall call, $0.ChangeHandlerStoreRequest request);
 
   $async.Future<$0.CurrentOutboundResponse> currentOutbound_Pre(
       $grpc.ServiceCall $call,
@@ -849,13 +857,4 @@ abstract class GrpcServiceBase extends $grpc.Service {
 
   $async.Stream<$0.RealmServerStatus> getRealmStatusStream(
       $grpc.ServiceCall call, $0.GetRealmStatusStreamRequest request);
-
-  $async.Future<$0.RealmInboundToUriResponse> realmInboundToUri_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.RealmInboundToUriRequest> $request) async {
-    return realmInboundToUri($call, await $request);
-  }
-
-  $async.Future<$0.RealmInboundToUriResponse> realmInboundToUri(
-      $grpc.ServiceCall call, $0.RealmInboundToUriRequest request);
 }

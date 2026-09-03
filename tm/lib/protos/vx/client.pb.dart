@@ -57,6 +57,7 @@ class TmConfig extends $pb.GeneratedMessage {
     $12.GrpcServiceConfig? grpcService,
     $13.FallbackMonConfig? fallbackMon,
     $14.DialerFactoryConfig? dialerFactory,
+    $core.Iterable<$11.OutboundHandler>? outboundHandlers,
   }) {
     final result = create();
     if (inboundManager != null) result.inboundManager = inboundManager;
@@ -82,6 +83,8 @@ class TmConfig extends $pb.GeneratedMessage {
     if (grpcService != null) result.grpcService = grpcService;
     if (fallbackMon != null) result.fallbackMon = fallbackMon;
     if (dialerFactory != null) result.dialerFactory = dialerFactory;
+    if (outboundHandlers != null)
+      result.outboundHandlers.addAll(outboundHandlers);
     return result;
   }
 
@@ -140,6 +143,8 @@ class TmConfig extends $pb.GeneratedMessage {
         subBuilder: $13.FallbackMonConfig.create)
     ..aOM<$14.DialerFactoryConfig>(38, _omitFieldNames ? '' : 'dialerFactory',
         subBuilder: $14.DialerFactoryConfig.create)
+    ..pPM<$11.OutboundHandler>(39, _omitFieldNames ? '' : 'outboundHandlers',
+        subBuilder: $11.OutboundHandler.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -406,6 +411,9 @@ class TmConfig extends $pb.GeneratedMessage {
   void clearDialerFactory() => $_clearField(38);
   @$pb.TagNumber(38)
   $14.DialerFactoryConfig ensureDialerFactory() => $_ensure(22);
+
+  @$pb.TagNumber(39)
+  $pb.PbList<$11.OutboundHandler> get outboundHandlers => $_getList(23);
 }
 
 const $core.bool _omitFieldNames =

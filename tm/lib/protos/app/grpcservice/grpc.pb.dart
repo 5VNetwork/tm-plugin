@@ -1552,6 +1552,115 @@ class ChangeOutboundResponse extends $pb.GeneratedMessage {
   static ChangeOutboundResponse? _defaultInstance;
 }
 
+class ChangeHandlerStoreRequest extends $pb.GeneratedMessage {
+  factory ChangeHandlerStoreRequest({
+    $core.Iterable<$3.OutboundHandler>? outboundHandlers,
+    $core.Iterable<$core.String>? tags,
+    $core.bool? deleteAll,
+  }) {
+    final result = create();
+    if (outboundHandlers != null)
+      result.outboundHandlers.addAll(outboundHandlers);
+    if (tags != null) result.tags.addAll(tags);
+    if (deleteAll != null) result.deleteAll = deleteAll;
+    return result;
+  }
+
+  ChangeHandlerStoreRequest._();
+
+  factory ChangeHandlerStoreRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ChangeHandlerStoreRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChangeHandlerStoreRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
+      createEmptyInstance: create)
+    ..pPM<$3.OutboundHandler>(1, _omitFieldNames ? '' : 'outboundHandlers',
+        subBuilder: $3.OutboundHandler.create)
+    ..pPS(2, _omitFieldNames ? '' : 'tags')
+    ..aOB(3, _omitFieldNames ? '' : 'deleteAll')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChangeHandlerStoreRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChangeHandlerStoreRequest copyWith(
+          void Function(ChangeHandlerStoreRequest) updates) =>
+      super.copyWith((message) => updates(message as ChangeHandlerStoreRequest))
+          as ChangeHandlerStoreRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ChangeHandlerStoreRequest create() => ChangeHandlerStoreRequest._();
+  @$core.override
+  ChangeHandlerStoreRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ChangeHandlerStoreRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ChangeHandlerStoreRequest>(create);
+  static ChangeHandlerStoreRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $pb.PbList<$3.OutboundHandler> get outboundHandlers => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<$core.String> get tags => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.bool get deleteAll => $_getBF(2);
+  @$pb.TagNumber(3)
+  set deleteAll($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDeleteAll() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDeleteAll() => $_clearField(3);
+}
+
+class ChangeHandlerStoreResponse extends $pb.GeneratedMessage {
+  factory ChangeHandlerStoreResponse() => create();
+
+  ChangeHandlerStoreResponse._();
+
+  factory ChangeHandlerStoreResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ChangeHandlerStoreResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChangeHandlerStoreResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChangeHandlerStoreResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChangeHandlerStoreResponse copyWith(
+          void Function(ChangeHandlerStoreResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as ChangeHandlerStoreResponse))
+          as ChangeHandlerStoreResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ChangeHandlerStoreResponse create() => ChangeHandlerStoreResponse._();
+  @$core.override
+  ChangeHandlerStoreResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ChangeHandlerStoreResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ChangeHandlerStoreResponse>(create);
+  static ChangeHandlerStoreResponse? _defaultInstance;
+}
+
 class CurrentOutboundRequest extends $pb.GeneratedMessage {
   factory CurrentOutboundRequest() => create();
 

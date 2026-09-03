@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 import 'package:protobuf/well_known_types/google/protobuf/any.pb.dart' as $2;
 
@@ -710,6 +711,239 @@ class HandlerConfig extends $pb.GeneratedMessage {
   $core.bool hasSupportIpv6() => $_has(2);
   @$pb.TagNumber(3)
   void clearSupportIpv6() => $_clearField(3);
+}
+
+/// Mirrors xsqlite.OutboundHandler. Used in TmConfig when the remote DB
+/// is unavailable so selectors can still match and build chains.
+class OutboundHandler extends $pb.GeneratedMessage {
+  factory OutboundHandler({
+    $fixnum.Int64? id,
+    $core.bool? selected,
+    $core.String? countryCode,
+    $core.int? ok,
+    $core.double? speed,
+    $core.int? speedTestTime,
+    $core.int? ping,
+    $core.int? pingTestTime,
+    $fixnum.Int64? subId,
+    $core.List<$core.int>? config,
+    $core.String? sni,
+    $core.String? serverIp,
+    $core.int? support6,
+    $core.int? support6TestTime,
+    $core.Iterable<$core.String>? groupTags,
+    $core.String? name,
+  }) {
+    final result = create();
+    if (id != null) result.id = id;
+    if (selected != null) result.selected = selected;
+    if (countryCode != null) result.countryCode = countryCode;
+    if (ok != null) result.ok = ok;
+    if (speed != null) result.speed = speed;
+    if (speedTestTime != null) result.speedTestTime = speedTestTime;
+    if (ping != null) result.ping = ping;
+    if (pingTestTime != null) result.pingTestTime = pingTestTime;
+    if (subId != null) result.subId = subId;
+    if (config != null) result.config = config;
+    if (sni != null) result.sni = sni;
+    if (serverIp != null) result.serverIp = serverIp;
+    if (support6 != null) result.support6 = support6;
+    if (support6TestTime != null) result.support6TestTime = support6TestTime;
+    if (groupTags != null) result.groupTags.addAll(groupTags);
+    if (name != null) result.name = name;
+    return result;
+  }
+
+  OutboundHandler._();
+
+  factory OutboundHandler.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory OutboundHandler.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'OutboundHandler',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.outbound'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'id')
+    ..aOB(2, _omitFieldNames ? '' : 'selected')
+    ..aOS(3, _omitFieldNames ? '' : 'countryCode')
+    ..aI(4, _omitFieldNames ? '' : 'ok')
+    ..aD(5, _omitFieldNames ? '' : 'speed')
+    ..aI(6, _omitFieldNames ? '' : 'speedTestTime')
+    ..aI(7, _omitFieldNames ? '' : 'ping')
+    ..aI(8, _omitFieldNames ? '' : 'pingTestTime')
+    ..aInt64(9, _omitFieldNames ? '' : 'subId')
+    ..a<$core.List<$core.int>>(
+        10, _omitFieldNames ? '' : 'config', $pb.PbFieldType.OY)
+    ..aOS(11, _omitFieldNames ? '' : 'sni')
+    ..aOS(12, _omitFieldNames ? '' : 'serverIp')
+    ..aI(13, _omitFieldNames ? '' : 'support6')
+    ..aI(14, _omitFieldNames ? '' : 'support6TestTime')
+    ..pPS(15, _omitFieldNames ? '' : 'groupTags')
+    ..aOS(16, _omitFieldNames ? '' : 'name')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  OutboundHandler clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  OutboundHandler copyWith(void Function(OutboundHandler) updates) =>
+      super.copyWith((message) => updates(message as OutboundHandler))
+          as OutboundHandler;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static OutboundHandler create() => OutboundHandler._();
+  @$core.override
+  OutboundHandler createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static OutboundHandler getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<OutboundHandler>(create);
+  static OutboundHandler? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get id => $_getI64(0);
+  @$pb.TagNumber(1)
+  set id($fixnum.Int64 value) => $_setInt64(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get selected => $_getBF(1);
+  @$pb.TagNumber(2)
+  set selected($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasSelected() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSelected() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get countryCode => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set countryCode($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasCountryCode() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCountryCode() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get ok => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set ok($core.int value) => $_setSignedInt32(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasOk() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearOk() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.double get speed => $_getN(4);
+  @$pb.TagNumber(5)
+  set speed($core.double value) => $_setDouble(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasSpeed() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearSpeed() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get speedTestTime => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set speedTestTime($core.int value) => $_setSignedInt32(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasSpeedTestTime() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSpeedTestTime() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.int get ping => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set ping($core.int value) => $_setSignedInt32(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasPing() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearPing() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.int get pingTestTime => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set pingTestTime($core.int value) => $_setSignedInt32(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasPingTestTime() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPingTestTime() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $fixnum.Int64 get subId => $_getI64(8);
+  @$pb.TagNumber(9)
+  set subId($fixnum.Int64 value) => $_setInt64(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasSubId() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearSubId() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.List<$core.int> get config => $_getN(9);
+  @$pb.TagNumber(10)
+  set config($core.List<$core.int> value) => $_setBytes(9, value);
+  @$pb.TagNumber(10)
+  $core.bool hasConfig() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearConfig() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.String get sni => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set sni($core.String value) => $_setString(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasSni() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearSni() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get serverIp => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set serverIp($core.String value) => $_setString(11, value);
+  @$pb.TagNumber(12)
+  $core.bool hasServerIp() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearServerIp() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.int get support6 => $_getIZ(12);
+  @$pb.TagNumber(13)
+  set support6($core.int value) => $_setSignedInt32(12, value);
+  @$pb.TagNumber(13)
+  $core.bool hasSupport6() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearSupport6() => $_clearField(13);
+
+  @$pb.TagNumber(14)
+  $core.int get support6TestTime => $_getIZ(13);
+  @$pb.TagNumber(14)
+  set support6TestTime($core.int value) => $_setSignedInt32(13, value);
+  @$pb.TagNumber(14)
+  $core.bool hasSupport6TestTime() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearSupport6TestTime() => $_clearField(14);
+
+  /// Not on the sqlite row; stored for group filter matching.
+  @$pb.TagNumber(15)
+  $pb.PbList<$core.String> get groupTags => $_getList(14);
+
+  /// Original node name (outbound tag is the numeric id).
+  @$pb.TagNumber(16)
+  $core.String get name => $_getSZ(15);
+  @$pb.TagNumber(16)
+  set name($core.String value) => $_setString(15, value);
+  @$pb.TagNumber(16)
+  $core.bool hasName() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearName() => $_clearField(16);
 }
 
 class HandlerConfigs extends $pb.GeneratedMessage {

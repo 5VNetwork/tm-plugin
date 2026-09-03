@@ -282,6 +282,50 @@ final $typed_data.Uint8List handlerConfigDescriptor = $convert.base64Decode(
     'Q2hhaW5IYW5kbGVyQ29uZmlnSABSBWNoYWluEiYKDHN1cHBvcnRfaXB2NhgDIAEoCEgBUgtzdX'
     'Bwb3J0SXB2NogBAUIGCgR0eXBlQg8KDV9zdXBwb3J0X2lwdjY=');
 
+@$core.Deprecated('Use outboundHandlerDescriptor instead')
+const OutboundHandler$json = {
+  '1': 'OutboundHandler',
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
+    {'1': 'selected', '3': 2, '4': 1, '5': 8, '10': 'selected'},
+    {'1': 'country_code', '3': 3, '4': 1, '5': 9, '10': 'countryCode'},
+    {'1': 'ok', '3': 4, '4': 1, '5': 5, '10': 'ok'},
+    {'1': 'speed', '3': 5, '4': 1, '5': 1, '10': 'speed'},
+    {'1': 'speed_test_time', '3': 6, '4': 1, '5': 5, '10': 'speedTestTime'},
+    {'1': 'ping', '3': 7, '4': 1, '5': 5, '10': 'ping'},
+    {'1': 'ping_test_time', '3': 8, '4': 1, '5': 5, '10': 'pingTestTime'},
+    {'1': 'sub_id', '3': 9, '4': 1, '5': 3, '9': 0, '10': 'subId', '17': true},
+    {'1': 'config', '3': 10, '4': 1, '5': 12, '10': 'config'},
+    {'1': 'sni', '3': 11, '4': 1, '5': 9, '10': 'sni'},
+    {'1': 'server_ip', '3': 12, '4': 1, '5': 9, '10': 'serverIp'},
+    {'1': 'support6', '3': 13, '4': 1, '5': 5, '10': 'support6'},
+    {
+      '1': 'support6_test_time',
+      '3': 14,
+      '4': 1,
+      '5': 5,
+      '10': 'support6TestTime'
+    },
+    {'1': 'group_tags', '3': 15, '4': 3, '5': 9, '10': 'groupTags'},
+    {'1': 'name', '3': 16, '4': 1, '5': 9, '10': 'name'},
+  ],
+  '8': [
+    {'1': '_sub_id'},
+  ],
+};
+
+/// Descriptor for `OutboundHandler`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List outboundHandlerDescriptor = $convert.base64Decode(
+    'Cg9PdXRib3VuZEhhbmRsZXISDgoCaWQYASABKANSAmlkEhoKCHNlbGVjdGVkGAIgASgIUghzZW'
+    'xlY3RlZBIhCgxjb3VudHJ5X2NvZGUYAyABKAlSC2NvdW50cnlDb2RlEg4KAm9rGAQgASgFUgJv'
+    'axIUCgVzcGVlZBgFIAEoAVIFc3BlZWQSJgoPc3BlZWRfdGVzdF90aW1lGAYgASgFUg1zcGVlZF'
+    'Rlc3RUaW1lEhIKBHBpbmcYByABKAVSBHBpbmcSJAoOcGluZ190ZXN0X3RpbWUYCCABKAVSDHBp'
+    'bmdUZXN0VGltZRIaCgZzdWJfaWQYCSABKANIAFIFc3ViSWSIAQESFgoGY29uZmlnGAogASgMUg'
+    'Zjb25maWcSEAoDc25pGAsgASgJUgNzbmkSGwoJc2VydmVyX2lwGAwgASgJUghzZXJ2ZXJJcBIa'
+    'CghzdXBwb3J0NhgNIAEoBVIIc3VwcG9ydDYSLAoSc3VwcG9ydDZfdGVzdF90aW1lGA4gASgFUh'
+    'BzdXBwb3J0NlRlc3RUaW1lEh0KCmdyb3VwX3RhZ3MYDyADKAlSCWdyb3VwVGFncxISCgRuYW1l'
+    'GBAgASgJUgRuYW1lQgkKB19zdWJfaWQ=');
+
 @$core.Deprecated('Use handlerConfigsDescriptor instead')
 const HandlerConfigs$json = {
   '1': 'HandlerConfigs',

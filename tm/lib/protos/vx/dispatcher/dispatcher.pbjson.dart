@@ -30,6 +30,20 @@ const DispatcherConfig$json = {
     {'1': 'ipv6_use_domain', '3': 7, '4': 1, '5': 8, '10': 'ipv6UseDomain'},
     {'1': 'fallback_timeout', '3': 8, '4': 1, '5': 13, '10': 'fallbackTimeout'},
     {'1': 'session_stats', '3': 9, '4': 1, '5': 8, '10': 'sessionStats'},
+    {
+      '1': 'change_domain_to_ipv6',
+      '3': 10,
+      '4': 1,
+      '5': 8,
+      '10': 'changeDomainToIpv6'
+    },
+    {
+      '1': 'change_domain_to_ipv4',
+      '3': 11,
+      '4': 1,
+      '5': 8,
+      '10': 'changeDomainToIpv4'
+    },
   ],
   '9': [
     {'1': 6, '2': 7},
@@ -41,4 +55,6 @@ final $typed_data.Uint8List dispatcherConfigDescriptor = $convert.base64Decode(
     'ChBEaXNwYXRjaGVyQ29uZmlnEjEKFGRlc3RpbmF0aW9uX292ZXJyaWRlGAQgAygJUhNkZXN0aW'
     '5hdGlvbk92ZXJyaWRlEhQKBXNuaWZmGAUgASgIUgVzbmlmZhImCg9pcHY2X3VzZV9kb21haW4Y'
     'ByABKAhSDWlwdjZVc2VEb21haW4SKQoQZmFsbGJhY2tfdGltZW91dBgIIAEoDVIPZmFsbGJhY2'
-    'tUaW1lb3V0EiMKDXNlc3Npb25fc3RhdHMYCSABKAhSDHNlc3Npb25TdGF0c0oECAYQBw==');
+    'tUaW1lb3V0EiMKDXNlc3Npb25fc3RhdHMYCSABKAhSDHNlc3Npb25TdGF0cxIxChVjaGFuZ2Vf'
+    'ZG9tYWluX3RvX2lwdjYYCiABKAhSEmNoYW5nZURvbWFpblRvSXB2NhIxChVjaGFuZ2VfZG9tYW'
+    'luX3RvX2lwdjQYCyABKAhSEmNoYW5nZURvbWFpblRvSXB2NEoECAYQBw==');

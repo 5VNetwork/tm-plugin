@@ -23,6 +23,8 @@ class DispatcherConfig extends $pb.GeneratedMessage {
     $core.bool? ipv6UseDomain,
     $core.int? fallbackTimeout,
     $core.bool? sessionStats,
+    $core.bool? changeDomainToIpv6,
+    $core.bool? changeDomainToIpv4,
   }) {
     final result = create();
     if (destinationOverride != null)
@@ -31,6 +33,10 @@ class DispatcherConfig extends $pb.GeneratedMessage {
     if (ipv6UseDomain != null) result.ipv6UseDomain = ipv6UseDomain;
     if (fallbackTimeout != null) result.fallbackTimeout = fallbackTimeout;
     if (sessionStats != null) result.sessionStats = sessionStats;
+    if (changeDomainToIpv6 != null)
+      result.changeDomainToIpv6 = changeDomainToIpv6;
+    if (changeDomainToIpv4 != null)
+      result.changeDomainToIpv4 = changeDomainToIpv4;
     return result;
   }
 
@@ -53,6 +59,8 @@ class DispatcherConfig extends $pb.GeneratedMessage {
     ..aI(8, _omitFieldNames ? '' : 'fallbackTimeout',
         fieldType: $pb.PbFieldType.OU3)
     ..aOB(9, _omitFieldNames ? '' : 'sessionStats')
+    ..aOB(10, _omitFieldNames ? '' : 'changeDomainToIpv6')
+    ..aOB(11, _omitFieldNames ? '' : 'changeDomainToIpv4')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -120,6 +128,26 @@ class DispatcherConfig extends $pb.GeneratedMessage {
   $core.bool hasSessionStats() => $_has(4);
   @$pb.TagNumber(9)
   void clearSessionStats() => $_clearField(9);
+
+  /// Change domain to ipv6.
+  @$pb.TagNumber(10)
+  $core.bool get changeDomainToIpv6 => $_getBF(5);
+  @$pb.TagNumber(10)
+  set changeDomainToIpv6($core.bool value) => $_setBool(5, value);
+  @$pb.TagNumber(10)
+  $core.bool hasChangeDomainToIpv6() => $_has(5);
+  @$pb.TagNumber(10)
+  void clearChangeDomainToIpv6() => $_clearField(10);
+
+  /// Change domain to ipv4.
+  @$pb.TagNumber(11)
+  $core.bool get changeDomainToIpv4 => $_getBF(6);
+  @$pb.TagNumber(11)
+  set changeDomainToIpv4($core.bool value) => $_setBool(6, value);
+  @$pb.TagNumber(11)
+  $core.bool hasChangeDomainToIpv4() => $_has(6);
+  @$pb.TagNumber(11)
+  void clearChangeDomainToIpv4() => $_clearField(11);
 }
 
 const $core.bool _omitFieldNames =

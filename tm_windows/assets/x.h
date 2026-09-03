@@ -95,11 +95,11 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern __declspec(dllexport) char* Start(void* p, int len, self_stop_callback_t callback);
-extern __declspec(dllexport) char* Stop(void);
-extern __declspec(dllexport) void FreeString(char* s);
-extern __declspec(dllexport) void FreeBytes(void* p);
-extern __declspec(dllexport) char* StartApiServer(void* p, int len);
+extern char* Start(void* p, int len, self_stop_callback_t callback);
+extern char* Stop(void);
+extern void FreeString(char* s);
+extern void FreeBytes(void* p);
+extern char* StartApiServer(void* p, int len);
 
 /* Return type for GenerateTls */
 struct GenerateTls_return {
@@ -107,12 +107,12 @@ struct GenerateTls_return {
 	int r1;
 	char* r2;
 };
-extern __declspec(dllexport) struct GenerateTls_return GenerateTls(void);
-extern __declspec(dllexport) char* InstallService(char* path, char* name);
-extern __declspec(dllexport) char* RemoveService(char* name);
-extern __declspec(dllexport) char* StartService(char* path, char* name);
-extern __declspec(dllexport) char* GetServiceStatus(char* name);
-extern __declspec(dllexport) char* StopService(char* name);
+extern struct GenerateTls_return GenerateTls(void);
+extern char* InstallService(char* path, char* name);
+extern char* RemoveService(char* name);
+extern char* StartService(char* path, char* name);
+extern char* GetServiceStatus(char* name);
+extern char* StopService(char* name);
 
 #ifdef __cplusplus
 }

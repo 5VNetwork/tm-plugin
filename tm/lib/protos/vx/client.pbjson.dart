@@ -174,6 +174,14 @@ const TmConfig$json = {
       '6': '.vx.dialerfactory.DialerFactoryConfig',
       '10': 'dialerFactory'
     },
+    {
+      '1': 'outbound_handlers',
+      '3': 39,
+      '4': 3,
+      '5': 11,
+      '6': '.vx.outbound.OutboundHandler',
+      '10': 'outboundHandlers'
+    },
   ],
   '9': [
     {'1': 34, '2': 35},
@@ -203,4 +211,5 @@ final $typed_data.Uint8List tmConfigDescriptor = $convert.base64Decode(
     'U2VydmljZUNvbmZpZ1ILZ3JwY1NlcnZpY2USRAoMZmFsbGJhY2tfbW9uGCUgASgLMiEudnguZm'
     'FsbGJhY2ttb24uRmFsbGJhY2tNb25Db25maWdSC2ZhbGxiYWNrTW9uEkwKDmRpYWxlcl9mYWN0'
     'b3J5GCYgASgLMiUudnguZGlhbGVyZmFjdG9yeS5EaWFsZXJGYWN0b3J5Q29uZmlnUg1kaWFsZX'
-    'JGYWN0b3J5SgQIIhAj');
+    'JGYWN0b3J5EkkKEW91dGJvdW5kX2hhbmRsZXJzGCcgAygLMhwudngub3V0Ym91bmQuT3V0Ym91'
+    'bmRIYW5kbGVyUhBvdXRib3VuZEhhbmRsZXJzSgQIIhAj');

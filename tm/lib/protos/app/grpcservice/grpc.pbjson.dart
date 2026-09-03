@@ -420,6 +420,38 @@ const ChangeOutboundResponse$json = {
 final $typed_data.Uint8List changeOutboundResponseDescriptor =
     $convert.base64Decode('ChZDaGFuZ2VPdXRib3VuZFJlc3BvbnNl');
 
+@$core.Deprecated('Use changeHandlerStoreRequestDescriptor instead')
+const ChangeHandlerStoreRequest$json = {
+  '1': 'ChangeHandlerStoreRequest',
+  '2': [
+    {
+      '1': 'outbound_handlers',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.vx.outbound.OutboundHandler',
+      '10': 'outboundHandlers'
+    },
+    {'1': 'tags', '3': 2, '4': 3, '5': 9, '10': 'tags'},
+    {'1': 'delete_all', '3': 3, '4': 1, '5': 8, '10': 'deleteAll'},
+  ],
+};
+
+/// Descriptor for `ChangeHandlerStoreRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List changeHandlerStoreRequestDescriptor = $convert.base64Decode(
+    'ChlDaGFuZ2VIYW5kbGVyU3RvcmVSZXF1ZXN0EkkKEW91dGJvdW5kX2hhbmRsZXJzGAEgAygLMh'
+    'wudngub3V0Ym91bmQuT3V0Ym91bmRIYW5kbGVyUhBvdXRib3VuZEhhbmRsZXJzEhIKBHRhZ3MY'
+    'AiADKAlSBHRhZ3MSHQoKZGVsZXRlX2FsbBgDIAEoCFIJZGVsZXRlQWxs');
+
+@$core.Deprecated('Use changeHandlerStoreResponseDescriptor instead')
+const ChangeHandlerStoreResponse$json = {
+  '1': 'ChangeHandlerStoreResponse',
+};
+
+/// Descriptor for `ChangeHandlerStoreResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List changeHandlerStoreResponseDescriptor =
+    $convert.base64Decode('ChpDaGFuZ2VIYW5kbGVyU3RvcmVSZXNwb25zZQ==');
+
 @$core.Deprecated('Use currentOutboundRequestDescriptor instead')
 const CurrentOutboundRequest$json = {
   '1': 'CurrentOutboundRequest',
