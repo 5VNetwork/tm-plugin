@@ -15,7 +15,8 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../vx/common/geo/geo.pb.dart' as $6;
+import '../../vx/common/geo/geo.pb.dart' as $7;
+import '../../vx/dns/dns.pb.dart' as $6;
 import '../../vx/geo/geo.pb.dart' as $5;
 import '../../vx/inbound/inbound.pb.dart' as $2;
 import '../../vx/outbound/outbound.pb.dart' as $3;
@@ -1754,10 +1755,12 @@ class ChangeRoutingModeRequest extends $pb.GeneratedMessage {
   factory ChangeRoutingModeRequest({
     $4.RouterConfig? routerConfig,
     $5.GeoConfig? geoConfig,
+    $6.DnsConfig? dnsConfig,
   }) {
     final result = create();
     if (routerConfig != null) result.routerConfig = routerConfig;
     if (geoConfig != null) result.geoConfig = geoConfig;
+    if (dnsConfig != null) result.dnsConfig = dnsConfig;
     return result;
   }
 
@@ -1778,6 +1781,8 @@ class ChangeRoutingModeRequest extends $pb.GeneratedMessage {
         subBuilder: $4.RouterConfig.create)
     ..aOM<$5.GeoConfig>(2, _omitFieldNames ? '' : 'geoConfig',
         subBuilder: $5.GeoConfig.create)
+    ..aOM<$6.DnsConfig>(3, _omitFieldNames ? '' : 'dnsConfig',
+        subBuilder: $6.DnsConfig.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1821,6 +1826,17 @@ class ChangeRoutingModeRequest extends $pb.GeneratedMessage {
   void clearGeoConfig() => $_clearField(2);
   @$pb.TagNumber(2)
   $5.GeoConfig ensureGeoConfig() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $6.DnsConfig get dnsConfig => $_getN(2);
+  @$pb.TagNumber(3)
+  set dnsConfig($6.DnsConfig value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDnsConfig() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDnsConfig() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $6.DnsConfig ensureDnsConfig() => $_ensure(2);
 }
 
 class ChangeRoutingModeResponse extends $pb.GeneratedMessage {
@@ -2403,7 +2419,7 @@ class UpdateGeoResponse extends $pb.GeneratedMessage {
 class AddGeoDomainRequest extends $pb.GeneratedMessage {
   factory AddGeoDomainRequest({
     $core.String? domainSetName,
-    $6.Domain? domain,
+    $7.Domain? domain,
   }) {
     final result = create();
     if (domainSetName != null) result.domainSetName = domainSetName;
@@ -2425,8 +2441,8 @@ class AddGeoDomainRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'domainSetName')
-    ..aOM<$6.Domain>(2, _omitFieldNames ? '' : 'domain',
-        subBuilder: $6.Domain.create)
+    ..aOM<$7.Domain>(2, _omitFieldNames ? '' : 'domain',
+        subBuilder: $7.Domain.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -2458,21 +2474,21 @@ class AddGeoDomainRequest extends $pb.GeneratedMessage {
   void clearDomainSetName() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $6.Domain get domain => $_getN(1);
+  $7.Domain get domain => $_getN(1);
   @$pb.TagNumber(2)
-  set domain($6.Domain value) => $_setField(2, value);
+  set domain($7.Domain value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasDomain() => $_has(1);
   @$pb.TagNumber(2)
   void clearDomain() => $_clearField(2);
   @$pb.TagNumber(2)
-  $6.Domain ensureDomain() => $_ensure(1);
+  $7.Domain ensureDomain() => $_ensure(1);
 }
 
 class RemoveGeoDomainRequest extends $pb.GeneratedMessage {
   factory RemoveGeoDomainRequest({
     $core.String? domainSetName,
-    $6.Domain? domain,
+    $7.Domain? domain,
   }) {
     final result = create();
     if (domainSetName != null) result.domainSetName = domainSetName;
@@ -2494,8 +2510,8 @@ class RemoveGeoDomainRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.grpcservice'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'domainSetName')
-    ..aOM<$6.Domain>(2, _omitFieldNames ? '' : 'domain',
-        subBuilder: $6.Domain.create)
+    ..aOM<$7.Domain>(2, _omitFieldNames ? '' : 'domain',
+        subBuilder: $7.Domain.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -2528,15 +2544,15 @@ class RemoveGeoDomainRequest extends $pb.GeneratedMessage {
   void clearDomainSetName() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $6.Domain get domain => $_getN(1);
+  $7.Domain get domain => $_getN(1);
   @$pb.TagNumber(2)
-  set domain($6.Domain value) => $_setField(2, value);
+  set domain($7.Domain value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasDomain() => $_has(1);
   @$pb.TagNumber(2)
   void clearDomain() => $_clearField(2);
   @$pb.TagNumber(2)
-  $6.Domain ensureDomain() => $_ensure(1);
+  $7.Domain ensureDomain() => $_ensure(1);
 }
 
 class ReplaceDomainSetRequest extends $pb.GeneratedMessage {

@@ -64,5 +64,43 @@ class ServerActionRequest_Action extends $pb.ProtobufEnum {
   const ServerActionRequest_Action._(super.value, super.name);
 }
 
+class FileTransferEvent_State extends $pb.ProtobufEnum {
+  static const FileTransferEvent_State STATE_UNSPECIFIED =
+      FileTransferEvent_State._(0, _omitEnumNames ? '' : 'STATE_UNSPECIFIED');
+  static const FileTransferEvent_State STATE_STARTING =
+      FileTransferEvent_State._(1, _omitEnumNames ? '' : 'STATE_STARTING');
+  static const FileTransferEvent_State STATE_WAITING =
+      FileTransferEvent_State._(2, _omitEnumNames ? '' : 'STATE_WAITING');
+  static const FileTransferEvent_State STATE_CONNECTING =
+      FileTransferEvent_State._(3, _omitEnumNames ? '' : 'STATE_CONNECTING');
+  static const FileTransferEvent_State STATE_TRANSFERRING =
+      FileTransferEvent_State._(4, _omitEnumNames ? '' : 'STATE_TRANSFERRING');
+  static const FileTransferEvent_State STATE_COMPLETED =
+      FileTransferEvent_State._(5, _omitEnumNames ? '' : 'STATE_COMPLETED');
+  static const FileTransferEvent_State STATE_FAILED =
+      FileTransferEvent_State._(6, _omitEnumNames ? '' : 'STATE_FAILED');
+  static const FileTransferEvent_State STATE_CANCELLED =
+      FileTransferEvent_State._(7, _omitEnumNames ? '' : 'STATE_CANCELLED');
+
+  static const $core.List<FileTransferEvent_State> values =
+      <FileTransferEvent_State>[
+    STATE_UNSPECIFIED,
+    STATE_STARTING,
+    STATE_WAITING,
+    STATE_CONNECTING,
+    STATE_TRANSFERRING,
+    STATE_COMPLETED,
+    STATE_FAILED,
+    STATE_CANCELLED,
+  ];
+
+  static final $core.List<FileTransferEvent_State?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 7);
+  static FileTransferEvent_State? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const FileTransferEvent_State._(super.value, super.name);
+}
+
 const $core.bool _omitEnumNames =
     $core.bool.fromEnvironment('protobuf.omit_enum_names');

@@ -5103,6 +5103,280 @@ class ToUrlResponse extends $pb.GeneratedMessage {
   $pb.PbList<$core.String> get failedNodes => $_getList(1);
 }
 
+class StartFileReceiveRequest extends $pb.GeneratedMessage {
+  factory StartFileReceiveRequest({
+    $core.String? saveDir,
+    $4.ProxyInboundConfig? inbound,
+  }) {
+    final result = create();
+    if (saveDir != null) result.saveDir = saveDir;
+    if (inbound != null) result.inbound = inbound;
+    return result;
+  }
+
+  StartFileReceiveRequest._();
+
+  factory StartFileReceiveRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory StartFileReceiveRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StartFileReceiveRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.api'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'saveDir')
+    ..aOM<$4.ProxyInboundConfig>(2, _omitFieldNames ? '' : 'inbound',
+        subBuilder: $4.ProxyInboundConfig.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StartFileReceiveRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StartFileReceiveRequest copyWith(
+          void Function(StartFileReceiveRequest) updates) =>
+      super.copyWith((message) => updates(message as StartFileReceiveRequest))
+          as StartFileReceiveRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static StartFileReceiveRequest create() => StartFileReceiveRequest._();
+  @$core.override
+  StartFileReceiveRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static StartFileReceiveRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StartFileReceiveRequest>(create);
+  static StartFileReceiveRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get saveDir => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set saveDir($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSaveDir() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSaveDir() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $4.ProxyInboundConfig get inbound => $_getN(1);
+  @$pb.TagNumber(2)
+  set inbound($4.ProxyInboundConfig value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasInbound() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearInbound() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $4.ProxyInboundConfig ensureInbound() => $_ensure(1);
+}
+
+class StartFileSendRequest extends $pb.GeneratedMessage {
+  factory StartFileSendRequest({
+    $core.String? realmUrl,
+    $core.String? filePath,
+  }) {
+    final result = create();
+    if (realmUrl != null) result.realmUrl = realmUrl;
+    if (filePath != null) result.filePath = filePath;
+    return result;
+  }
+
+  StartFileSendRequest._();
+
+  factory StartFileSendRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory StartFileSendRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StartFileSendRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.api'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'realmUrl')
+    ..aOS(2, _omitFieldNames ? '' : 'filePath')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StartFileSendRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StartFileSendRequest copyWith(void Function(StartFileSendRequest) updates) =>
+      super.copyWith((message) => updates(message as StartFileSendRequest))
+          as StartFileSendRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static StartFileSendRequest create() => StartFileSendRequest._();
+  @$core.override
+  StartFileSendRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static StartFileSendRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StartFileSendRequest>(create);
+  static StartFileSendRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get realmUrl => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set realmUrl($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasRealmUrl() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRealmUrl() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get filePath => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set filePath($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasFilePath() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFilePath() => $_clearField(2);
+}
+
+class FileTransferEvent extends $pb.GeneratedMessage {
+  factory FileTransferEvent({
+    FileTransferEvent_State? state,
+    $core.String? shareUrl,
+    $core.String? filename,
+    $fixnum.Int64? bytesDone,
+    $fixnum.Int64? bytesTotal,
+    $core.String? savePath,
+    $core.String? error,
+    $core.Iterable<$core.String>? publicAddresses,
+  }) {
+    final result = create();
+    if (state != null) result.state = state;
+    if (shareUrl != null) result.shareUrl = shareUrl;
+    if (filename != null) result.filename = filename;
+    if (bytesDone != null) result.bytesDone = bytesDone;
+    if (bytesTotal != null) result.bytesTotal = bytesTotal;
+    if (savePath != null) result.savePath = savePath;
+    if (error != null) result.error = error;
+    if (publicAddresses != null) result.publicAddresses.addAll(publicAddresses);
+    return result;
+  }
+
+  FileTransferEvent._();
+
+  factory FileTransferEvent.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory FileTransferEvent.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FileTransferEvent',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'vx.api'),
+      createEmptyInstance: create)
+    ..aE<FileTransferEvent_State>(1, _omitFieldNames ? '' : 'state',
+        enumValues: FileTransferEvent_State.values)
+    ..aOS(2, _omitFieldNames ? '' : 'shareUrl')
+    ..aOS(3, _omitFieldNames ? '' : 'filename')
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'bytesDone', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'bytesTotal', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(6, _omitFieldNames ? '' : 'savePath')
+    ..aOS(7, _omitFieldNames ? '' : 'error')
+    ..pPS(8, _omitFieldNames ? '' : 'publicAddresses')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FileTransferEvent clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FileTransferEvent copyWith(void Function(FileTransferEvent) updates) =>
+      super.copyWith((message) => updates(message as FileTransferEvent))
+          as FileTransferEvent;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FileTransferEvent create() => FileTransferEvent._();
+  @$core.override
+  FileTransferEvent createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static FileTransferEvent getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FileTransferEvent>(create);
+  static FileTransferEvent? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  FileTransferEvent_State get state => $_getN(0);
+  @$pb.TagNumber(1)
+  set state(FileTransferEvent_State value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasState() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearState() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get shareUrl => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set shareUrl($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasShareUrl() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearShareUrl() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get filename => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set filename($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasFilename() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearFilename() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get bytesDone => $_getI64(3);
+  @$pb.TagNumber(4)
+  set bytesDone($fixnum.Int64 value) => $_setInt64(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasBytesDone() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBytesDone() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get bytesTotal => $_getI64(4);
+  @$pb.TagNumber(5)
+  set bytesTotal($fixnum.Int64 value) => $_setInt64(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasBytesTotal() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearBytesTotal() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get savePath => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set savePath($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasSavePath() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSavePath() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get error => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set error($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasError() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearError() => $_clearField(7);
+
+  /// STUN-discovered public UDP addresses (host:port) of the file-transfer realm listener.
+  @$pb.TagNumber(8)
+  $pb.PbList<$core.String> get publicAddresses => $_getList(7);
+}
+
 const $core.bool _omitFieldNames =
     $core.bool.fromEnvironment('protobuf.omit_field_names');
 const $core.bool _omitMessageNames =

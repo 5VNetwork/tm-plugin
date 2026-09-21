@@ -313,6 +313,24 @@ class ApiClient extends $grpc.Client {
     return $createUnaryCall(_$handlerCountryTest, request, options: options);
   }
 
+  $grpc.ResponseStream<$0.FileTransferEvent> startFileReceive(
+    $0.StartFileReceiveRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createStreamingCall(
+        _$startFileReceive, $async.Stream.fromIterable([request]),
+        options: options);
+  }
+
+  $grpc.ResponseStream<$0.FileTransferEvent> startFileSend(
+    $0.StartFileSendRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createStreamingCall(
+        _$startFileSend, $async.Stream.fromIterable([request]),
+        options: options);
+  }
+
   // method descriptors
 
   static final _$updateTmStatus =
@@ -501,6 +519,16 @@ class ApiClient extends $grpc.Client {
       '/vx.api.Api/HandlerCountryTest',
       ($0.HandlerCountryTestRequest value) => value.writeToBuffer(),
       $0.HandlerCountryTestResponse.fromBuffer);
+  static final _$startFileReceive =
+      $grpc.ClientMethod<$0.StartFileReceiveRequest, $0.FileTransferEvent>(
+          '/vx.api.Api/StartFileReceive',
+          ($0.StartFileReceiveRequest value) => value.writeToBuffer(),
+          $0.FileTransferEvent.fromBuffer);
+  static final _$startFileSend =
+      $grpc.ClientMethod<$0.StartFileSendRequest, $0.FileTransferEvent>(
+          '/vx.api.Api/StartFileSend',
+          ($0.StartFileSendRequest value) => value.writeToBuffer(),
+          $0.FileTransferEvent.fromBuffer);
 }
 
 @$pb.GrpcServiceName('vx.api.Api')
@@ -822,6 +850,24 @@ abstract class ApiServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.HandlerCountryTestRequest.fromBuffer(value),
         ($0.HandlerCountryTestResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.StartFileReceiveRequest, $0.FileTransferEvent>(
+            'StartFileReceive',
+            startFileReceive_Pre,
+            false,
+            true,
+            ($core.List<$core.int> value) =>
+                $0.StartFileReceiveRequest.fromBuffer(value),
+            ($0.FileTransferEvent value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.StartFileSendRequest, $0.FileTransferEvent>(
+            'StartFileSend',
+            startFileSend_Pre,
+            false,
+            true,
+            ($core.List<$core.int> value) =>
+                $0.StartFileSendRequest.fromBuffer(value),
+            ($0.FileTransferEvent value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.Receipt> updateTmStatus_Pre($grpc.ServiceCall $call,
@@ -1150,4 +1196,21 @@ abstract class ApiServiceBase extends $grpc.Service {
 
   $async.Future<$0.HandlerCountryTestResponse> handlerCountryTest(
       $grpc.ServiceCall call, $0.HandlerCountryTestRequest request);
+
+  $async.Stream<$0.FileTransferEvent> startFileReceive_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.StartFileReceiveRequest> $request) async* {
+    yield* startFileReceive($call, await $request);
+  }
+
+  $async.Stream<$0.FileTransferEvent> startFileReceive(
+      $grpc.ServiceCall call, $0.StartFileReceiveRequest request);
+
+  $async.Stream<$0.FileTransferEvent> startFileSend_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.StartFileSendRequest> $request) async* {
+    yield* startFileSend($call, await $request);
+  }
+
+  $async.Stream<$0.FileTransferEvent> startFileSend(
+      $grpc.ServiceCall call, $0.StartFileSendRequest request);
 }

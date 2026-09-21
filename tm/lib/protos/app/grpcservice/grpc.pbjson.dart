@@ -495,6 +495,14 @@ const ChangeRoutingModeRequest$json = {
       '6': '.vx.geo.GeoConfig',
       '10': 'geoConfig'
     },
+    {
+      '1': 'dns_config',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.vx.dns.DnsConfig',
+      '10': 'dnsConfig'
+    },
   ],
 };
 
@@ -502,7 +510,8 @@ const ChangeRoutingModeRequest$json = {
 final $typed_data.Uint8List changeRoutingModeRequestDescriptor = $convert.base64Decode(
     'ChhDaGFuZ2VSb3V0aW5nTW9kZVJlcXVlc3QSPAoNcm91dGVyX2NvbmZpZxgBIAEoCzIXLnZ4Ln'
     'JvdXRlci5Sb3V0ZXJDb25maWdSDHJvdXRlckNvbmZpZxIwCgpnZW9fY29uZmlnGAIgASgLMhEu'
-    'dnguZ2VvLkdlb0NvbmZpZ1IJZ2VvQ29uZmln');
+    'dnguZ2VvLkdlb0NvbmZpZ1IJZ2VvQ29uZmlnEjAKCmRuc19jb25maWcYAyABKAsyES52eC5kbn'
+    'MuRG5zQ29uZmlnUglkbnNDb25maWc=');
 
 @$core.Deprecated('Use changeRoutingModeResponseDescriptor instead')
 const ChangeRoutingModeResponse$json = {

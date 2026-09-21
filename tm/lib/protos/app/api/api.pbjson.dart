@@ -1511,3 +1511,88 @@ const ToUrlResponse$json = {
 final $typed_data.Uint8List toUrlResponseDescriptor = $convert.base64Decode(
     'Cg1Ub1VybFJlc3BvbnNlEhIKBHVybHMYASADKAlSBHVybHMSIQoMZmFpbGVkX25vZGVzGAIgAy'
     'gJUgtmYWlsZWROb2Rlcw==');
+
+@$core.Deprecated('Use startFileReceiveRequestDescriptor instead')
+const StartFileReceiveRequest$json = {
+  '1': 'StartFileReceiveRequest',
+  '2': [
+    {'1': 'save_dir', '3': 1, '4': 1, '5': 9, '10': 'saveDir'},
+    {
+      '1': 'inbound',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.vx.inbound.ProxyInboundConfig',
+      '10': 'inbound'
+    },
+  ],
+};
+
+/// Descriptor for `StartFileReceiveRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List startFileReceiveRequestDescriptor = $convert.base64Decode(
+    'ChdTdGFydEZpbGVSZWNlaXZlUmVxdWVzdBIZCghzYXZlX2RpchgBIAEoCVIHc2F2ZURpchI4Cg'
+    'dpbmJvdW5kGAIgASgLMh4udnguaW5ib3VuZC5Qcm94eUluYm91bmRDb25maWdSB2luYm91bmQ=');
+
+@$core.Deprecated('Use startFileSendRequestDescriptor instead')
+const StartFileSendRequest$json = {
+  '1': 'StartFileSendRequest',
+  '2': [
+    {'1': 'realm_url', '3': 1, '4': 1, '5': 9, '10': 'realmUrl'},
+    {'1': 'file_path', '3': 2, '4': 1, '5': 9, '10': 'filePath'},
+  ],
+};
+
+/// Descriptor for `StartFileSendRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List startFileSendRequestDescriptor = $convert.base64Decode(
+    'ChRTdGFydEZpbGVTZW5kUmVxdWVzdBIbCglyZWFsbV91cmwYASABKAlSCHJlYWxtVXJsEhsKCW'
+    'ZpbGVfcGF0aBgCIAEoCVIIZmlsZVBhdGg=');
+
+@$core.Deprecated('Use fileTransferEventDescriptor instead')
+const FileTransferEvent$json = {
+  '1': 'FileTransferEvent',
+  '2': [
+    {
+      '1': 'state',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.vx.api.FileTransferEvent.State',
+      '10': 'state'
+    },
+    {'1': 'share_url', '3': 2, '4': 1, '5': 9, '10': 'shareUrl'},
+    {'1': 'filename', '3': 3, '4': 1, '5': 9, '10': 'filename'},
+    {'1': 'bytes_done', '3': 4, '4': 1, '5': 4, '10': 'bytesDone'},
+    {'1': 'bytes_total', '3': 5, '4': 1, '5': 4, '10': 'bytesTotal'},
+    {'1': 'save_path', '3': 6, '4': 1, '5': 9, '10': 'savePath'},
+    {'1': 'error', '3': 7, '4': 1, '5': 9, '10': 'error'},
+    {'1': 'public_addresses', '3': 8, '4': 3, '5': 9, '10': 'publicAddresses'},
+  ],
+  '4': [FileTransferEvent_State$json],
+};
+
+@$core.Deprecated('Use fileTransferEventDescriptor instead')
+const FileTransferEvent_State$json = {
+  '1': 'State',
+  '2': [
+    {'1': 'STATE_UNSPECIFIED', '2': 0},
+    {'1': 'STATE_STARTING', '2': 1},
+    {'1': 'STATE_WAITING', '2': 2},
+    {'1': 'STATE_CONNECTING', '2': 3},
+    {'1': 'STATE_TRANSFERRING', '2': 4},
+    {'1': 'STATE_COMPLETED', '2': 5},
+    {'1': 'STATE_FAILED', '2': 6},
+    {'1': 'STATE_CANCELLED', '2': 7},
+  ],
+};
+
+/// Descriptor for `FileTransferEvent`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List fileTransferEventDescriptor = $convert.base64Decode(
+    'ChFGaWxlVHJhbnNmZXJFdmVudBI1CgVzdGF0ZRgBIAEoDjIfLnZ4LmFwaS5GaWxlVHJhbnNmZX'
+    'JFdmVudC5TdGF0ZVIFc3RhdGUSGwoJc2hhcmVfdXJsGAIgASgJUghzaGFyZVVybBIaCghmaWxl'
+    'bmFtZRgDIAEoCVIIZmlsZW5hbWUSHQoKYnl0ZXNfZG9uZRgEIAEoBFIJYnl0ZXNEb25lEh8KC2'
+    'J5dGVzX3RvdGFsGAUgASgEUgpieXRlc1RvdGFsEhsKCXNhdmVfcGF0aBgGIAEoCVIIc2F2ZVBh'
+    'dGgSFAoFZXJyb3IYByABKAlSBWVycm9yEikKEHB1YmxpY19hZGRyZXNzZXMYCCADKAlSD3B1Ym'
+    'xpY0FkZHJlc3NlcyKvAQoFU3RhdGUSFQoRU1RBVEVfVU5TUEVDSUZJRUQQABISCg5TVEFURV9T'
+    'VEFSVElORxABEhEKDVNUQVRFX1dBSVRJTkcQAhIUChBTVEFURV9DT05ORUNUSU5HEAMSFgoSU1'
+    'RBVEVfVFJBTlNGRVJSSU5HEAQSEwoPU1RBVEVfQ09NUExFVEVEEAUSEAoMU1RBVEVfRkFJTEVE'
+    'EAYSEwoPU1RBVEVfQ0FOQ0VMTEVEEAc=');
