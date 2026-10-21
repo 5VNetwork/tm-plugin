@@ -19,16 +19,18 @@ class Network extends $pb.ProtobufEnum {
   static const Network TCP = Network._(2, _omitEnumNames ? '' : 'TCP');
   static const Network UDP = Network._(3, _omitEnumNames ? '' : 'UDP');
   static const Network UNIX = Network._(4, _omitEnumNames ? '' : 'UNIX');
+  static const Network ICMP = Network._(5, _omitEnumNames ? '' : 'ICMP');
 
   static const $core.List<Network> values = <Network>[
     Unknown,
     TCP,
     UDP,
     UNIX,
+    ICMP,
   ];
 
   static final $core.List<Network?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 4);
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
   static Network? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

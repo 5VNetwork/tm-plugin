@@ -23,12 +23,14 @@ const Network$json = {
     {'1': 'TCP', '2': 2},
     {'1': 'UDP', '2': 3},
     {'1': 'UNIX', '2': 4},
+    {'1': 'ICMP', '2': 5},
   ],
 };
 
 /// Descriptor for `Network`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List networkDescriptor = $convert.base64Decode(
-    'CgdOZXR3b3JrEgsKB1Vua25vd24QABIHCgNUQ1AQAhIHCgNVRFAQAxIICgRVTklYEAQ=');
+    'CgdOZXR3b3JrEgsKB1Vua25vd24QABIHCgNUQ1AQAhIHCgNVRFAQAxIICgRVTklYEAQSCAoESU'
+    'NNUBAF');
 
 @$core.Deprecated('Use packetAddrTypeDescriptor instead')
 const PacketAddrType$json = {
