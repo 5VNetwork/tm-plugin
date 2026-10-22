@@ -136,13 +136,16 @@ const BandwidthConfig$json = {
   '2': [
     {'1': 'max_tx', '3': 1, '4': 1, '5': 13, '10': 'maxTx'},
     {'1': 'max_rx', '3': 2, '4': 1, '5': 13, '10': 'maxRx'},
+    {'1': 'max_tx_mbps', '3': 3, '4': 1, '5': 13, '10': 'maxTxMbps'},
+    {'1': 'max_rx_mbps', '3': 4, '4': 1, '5': 13, '10': 'maxRxMbps'},
   ],
 };
 
 /// Descriptor for `BandwidthConfig`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bandwidthConfigDescriptor = $convert.base64Decode(
     'Cg9CYW5kd2lkdGhDb25maWcSFQoGbWF4X3R4GAEgASgNUgVtYXhUeBIVCgZtYXhfcngYAiABKA'
-    '1SBW1heFJ4');
+    '1SBW1heFJ4Eh4KC21heF90eF9tYnBzGAMgASgNUgltYXhUeE1icHMSHgoLbWF4X3J4X21icHMY'
+    'BCABKA1SCW1heFJ4TWJwcw==');
 
 @$core.Deprecated('Use hysteria2ClientConfigDescriptor instead')
 const Hysteria2ClientConfig$json = {

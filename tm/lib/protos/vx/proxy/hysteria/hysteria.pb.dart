@@ -253,10 +253,14 @@ class BandwidthConfig extends $pb.GeneratedMessage {
   factory BandwidthConfig({
     $core.int? maxTx,
     $core.int? maxRx,
+    $core.int? maxTxMbps,
+    $core.int? maxRxMbps,
   }) {
     final result = create();
     if (maxTx != null) result.maxTx = maxTx;
     if (maxRx != null) result.maxRx = maxRx;
+    if (maxTxMbps != null) result.maxTxMbps = maxTxMbps;
+    if (maxRxMbps != null) result.maxRxMbps = maxRxMbps;
     return result;
   }
 
@@ -276,6 +280,8 @@ class BandwidthConfig extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aI(1, _omitFieldNames ? '' : 'maxTx', fieldType: $pb.PbFieldType.OU3)
     ..aI(2, _omitFieldNames ? '' : 'maxRx', fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'maxTxMbps', fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'maxRxMbps', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -297,7 +303,7 @@ class BandwidthConfig extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<BandwidthConfig>(create);
   static BandwidthConfig? _defaultInstance;
 
-  /// for client, this is upload
+  /// for client, this is upload. MB
   @$pb.TagNumber(1)
   $core.int get maxTx => $_getIZ(0);
   @$pb.TagNumber(1)
@@ -307,7 +313,7 @@ class BandwidthConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMaxTx() => $_clearField(1);
 
-  /// for client, this is download
+  /// for client, this is download. MB
   @$pb.TagNumber(2)
   $core.int get maxRx => $_getIZ(1);
   @$pb.TagNumber(2)
@@ -316,6 +322,26 @@ class BandwidthConfig extends $pb.GeneratedMessage {
   $core.bool hasMaxRx() => $_has(1);
   @$pb.TagNumber(2)
   void clearMaxRx() => $_clearField(2);
+
+  /// for client, this is upload. Mbps
+  @$pb.TagNumber(3)
+  $core.int get maxTxMbps => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set maxTxMbps($core.int value) => $_setUnsignedInt32(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasMaxTxMbps() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMaxTxMbps() => $_clearField(3);
+
+  /// for client, this is download. Mbps
+  @$pb.TagNumber(4)
+  $core.int get maxRxMbps => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set maxRxMbps($core.int value) => $_setUnsignedInt32(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasMaxRxMbps() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMaxRxMbps() => $_clearField(4);
 }
 
 class Hysteria2ClientConfig extends $pb.GeneratedMessage {
