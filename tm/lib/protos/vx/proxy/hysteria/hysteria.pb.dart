@@ -36,6 +36,7 @@ class QuicConfig extends $pb.GeneratedMessage {
     $fixnum.Int64? maxStreamReceiveWindowBytes,
     $fixnum.Int64? initialConnectionReceiveWindowBytes,
     $fixnum.Int64? maxConnectionReceiveWindowBytes,
+    $core.bool? disableChromeParrot,
   }) {
     final result = create();
     if (initialStreamReceiveWindow != null)
@@ -61,6 +62,8 @@ class QuicConfig extends $pb.GeneratedMessage {
           initialConnectionReceiveWindowBytes;
     if (maxConnectionReceiveWindowBytes != null)
       result.maxConnectionReceiveWindowBytes = maxConnectionReceiveWindowBytes;
+    if (disableChromeParrot != null)
+      result.disableChromeParrot = disableChromeParrot;
     return result;
   }
 
@@ -111,6 +114,7 @@ class QuicConfig extends $pb.GeneratedMessage {
         _omitFieldNames ? '' : 'maxConnectionReceiveWindowBytes',
         $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOB(17, _omitFieldNames ? '' : 'disableChromeParrot')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -247,6 +251,17 @@ class QuicConfig extends $pb.GeneratedMessage {
   $core.bool hasMaxConnectionReceiveWindowBytes() => $_has(11);
   @$pb.TagNumber(16)
   void clearMaxConnectionReceiveWindowBytes() => $_clearField(16);
+
+  /// Chrome QUIC fingerprint parroting is on by default; unset means
+  /// library default, except iOS which defaults to disabled.
+  @$pb.TagNumber(17)
+  $core.bool get disableChromeParrot => $_getBF(12);
+  @$pb.TagNumber(17)
+  set disableChromeParrot($core.bool value) => $_setBool(12, value);
+  @$pb.TagNumber(17)
+  $core.bool hasDisableChromeParrot() => $_has(12);
+  @$pb.TagNumber(17)
+  void clearDisableChromeParrot() => $_clearField(17);
 }
 
 class BandwidthConfig extends $pb.GeneratedMessage {
@@ -323,7 +338,7 @@ class BandwidthConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMaxRx() => $_clearField(2);
 
-  /// for client, this is upload. Mbps
+  /// for client, this is upload. Mb
   @$pb.TagNumber(3)
   $core.int get maxTxMbps => $_getIZ(2);
   @$pb.TagNumber(3)
@@ -333,7 +348,7 @@ class BandwidthConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMaxTxMbps() => $_clearField(3);
 
-  /// for client, this is download. Mbps
+  /// for client, this is download. Mb
   @$pb.TagNumber(4)
   $core.int get maxRxMbps => $_getIZ(3);
   @$pb.TagNumber(4)

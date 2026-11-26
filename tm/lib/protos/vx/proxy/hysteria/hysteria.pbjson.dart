@@ -109,6 +109,18 @@ const QuicConfig$json = {
       '5': 13,
       '10': 'maxIncomingStreams'
     },
+    {
+      '1': 'disable_chrome_parrot',
+      '3': 17,
+      '4': 1,
+      '5': 8,
+      '9': 0,
+      '10': 'disableChromeParrot',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_disable_chrome_parrot'},
   ],
 };
 
@@ -128,7 +140,8 @@ final $typed_data.Uint8List quicConfigDescriptor = $convert.base64Decode(
     'V0GAkgASgNUg5tYXhJZGxlVGltZW91dBIqChFrZWVwX2FsaXZlX3BlcmlvZBgKIAEoDVIPa2Vl'
     'cEFsaXZlUGVyaW9kEjsKGmRpc2FibGVfcGF0aF9tdHVfZGlzY292ZXJ5GAsgASgIUhdkaXNhYm'
     'xlUGF0aE10dURpc2NvdmVyeRIwChRtYXhfaW5jb21pbmdfc3RyZWFtcxgMIAEoDVISbWF4SW5j'
-    'b21pbmdTdHJlYW1z');
+    'b21pbmdTdHJlYW1zEjcKFWRpc2FibGVfY2hyb21lX3BhcnJvdBgRIAEoCEgAUhNkaXNhYmxlQ2'
+    'hyb21lUGFycm90iAEBQhgKFl9kaXNhYmxlX2Nocm9tZV9wYXJyb3Q=');
 
 @$core.Deprecated('Use bandwidthConfigDescriptor instead')
 const BandwidthConfig$json = {
